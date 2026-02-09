@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import processImage from "@/assets/process.png";
+import ExperienceGallery from "@/components/ExperienceGallery";
 const PhilosophySection = () => {
   return <section id="philosophy" className="py-24 md:py-32 bg-gradient-warm">
       <div className="container mx-auto px-6">
