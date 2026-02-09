@@ -6,7 +6,7 @@ import { MessageCircle, Send } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pb-24">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
@@ -18,7 +18,7 @@ const HeroSection = () => {
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-hero" />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(249, 247, 242, 0.7)' }} />
       </div>
 
       {/* Content */}
@@ -50,14 +50,14 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.h1
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground mb-6 leading-tight"
+            className="font-display text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground mb-6 leading-tight uppercase"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
             Hands first,
             <br />
-            <span className="text-gradient">head later.</span>
+            <span style={{ color: '#D67B54' }}>head later.</span>
           </motion.h1>
 
           <motion.p
