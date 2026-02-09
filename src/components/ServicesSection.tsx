@@ -6,7 +6,7 @@ const services = [{
   title: "In-Person Workshops",
   location: "Portugal",
   description: "Fully-equipped sessions at your location. We bring everything—premium materials, tools, and the expertise to guide your team through a memorable experience.",
-  features: ["All materials included", "On-site facilitation", "Group sizes 5-30", "2-3 hour sessions"],
+  features: ["All materials included", "On-site facilitation", "Group sizes 5-15", "2-3 hour sessions"],
   color: "accent"
 }, {
   icon: Video,
