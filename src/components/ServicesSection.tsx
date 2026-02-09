@@ -12,7 +12,7 @@ const services = [{
   icon: Video,
   title: "Online Workshops",
   location: "Europe-wide",
-  description: "We bridge the distance for distributed teams. We ship custom DIY kits to every participant across Europe and host a live, synchronized session to create together in a digital-free headspace.",
+  description: "Bridge the distance for distributed teams. We ship custom DIY kits in advance and host a live, synchronized session to create together in a digital-free headspace.",
   features: ["Kits shipped in advance", "Live instruction via Zoom", "Interactive Q&A", "Recording available"],
   color: "teal"
 }, {
