@@ -1,5 +1,7 @@
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback } from "react";
+import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 import photo1 from "@/assets/gallery/photo-1.jpg";
 import photo2 from "@/assets/gallery/photo-2.jpg";
@@ -13,40 +15,39 @@ type GalleryItem = {
   type: "image" | "video";
   src: string;
   caption: string;
-  widthClass: string;
+  aspect: string; // tailwind aspect class
 };
 
-// Shuffled order: no two videos adjacent
 const galleryItems: GalleryItem[] = [
-  { type: "video", src: video1, caption: "Shared focus", widthClass: "w-[360px]" },
-  { type: "image", src: photo1, caption: "Natural textures", widthClass: "w-[320px]" },
-  { type: "video", src: video3, caption: "Mindful making", widthClass: "w-[380px]" },
-  { type: "image", src: photo2, caption: "Tactile grounding", widthClass: "w-[300px]" },
-  { type: "video", src: video2, caption: "Creative flow", widthClass: "w-[350px]" },
-  { type: "video", src: video4, caption: "Collective calm", widthClass: "w-[420px]" },
-  { type: "video", src: video5, caption: "Hands at work", widthClass: "w-[340px]" },
+  { type: "video", src: video1, caption: "Shared focus", aspect: "aspect-[4/5]" },
+  { type: "image", src: photo1, caption: "Natural textures", aspect: "aspect-[3/4]" },
+  { type: "video", src: video2, caption: "Creative flow", aspect: "aspect-[4/5]" },
+  { type: "image", src: photo2, caption: "Tactile grounding", aspect: "aspect-[3/4]" },
+  { type: "video", src: video3, caption: "Mindful making", aspect: "aspect-[4/5]" },
+  { type: "video", src: video4, caption: "Collective calm", aspect: "aspect-[16/9]" },
+  { type: "video", src: video5, caption: "Hands at work", aspect: "aspect-[4/5]" },
 ];
 
-const VideoItem = ({
+const GalleryVideoItem = ({
   item,
-  uniqueKey,
+  index,
   activeVideo,
   setActiveVideo,
 }: {
   item: GalleryItem;
-  uniqueKey: string;
-  activeVideo: string | null;
-  setActiveVideo: (k: string | null) => void;
+  index: number;
+  activeVideo: number | null;
+  setActiveVideo: (i: number | null) => void;
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const isActive = activeVideo === uniqueKey;
+  const isActive = activeVideo === index;
 
-  const handleEnter = useCallback(() => {
-    setActiveVideo(uniqueKey);
+  const handlePlay = useCallback(() => {
+    setActiveVideo(index);
     videoRef.current?.play();
-  }, [uniqueKey, setActiveVideo]);
+  }, [index, setActiveVideo]);
 
-  const handleLeave = useCallback(() => {
+  const handleStop = useCallback(() => {
     if (isActive) {
       videoRef.current?.pause();
       if (videoRef.current) videoRef.current.currentTime = 0;
@@ -55,10 +56,15 @@ const VideoItem = ({
   }, [isActive, setActiveVideo]);
 
   return (
-    <div
-      className={`relative flex-shrink-0 ${item.widthClass} h-[440px] rounded-lg overflow-hidden cursor-pointer group`}
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
+    <motion.div
+      className={`relative rounded-lg overflow-hidden cursor-pointer group ${item.aspect}`}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.08, duration: 0.5 }}
+      onMouseEnter={handlePlay}
+      onMouseLeave={handleStop}
+      onClick={isActive ? handleStop : handlePlay}
     >
       <video
         ref={videoRef}
@@ -69,6 +75,8 @@ const VideoItem = ({
         preload="metadata"
         className="w-full h-full object-cover"
       />
+
+      {/* Play icon overlay - hidden when playing */}
       <div
         className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
           isActive ? "opacity-0" : "opacity-100"
@@ -78,18 +86,30 @@ const VideoItem = ({
           <Play className="w-5 h-5 text-background fill-background ml-0.5" />
         </div>
       </div>
+
+      {/* Caption on hover */}
       <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-foreground/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <span className="text-sm font-medium text-background tracking-wide">
           {item.caption}
         </span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-const ImageItem = ({ item }: { item: GalleryItem }) => (
-  <div
-    className={`relative flex-shrink-0 ${item.widthClass} h-[440px] rounded-lg overflow-hidden group`}
+const GalleryImageItem = ({
+  item,
+  index,
+}: {
+  item: GalleryItem;
+  index: number;
+}) => (
+  <motion.div
+    className={`relative rounded-lg overflow-hidden group ${item.aspect}`}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: index * 0.08, duration: 0.5 }}
   >
     <img
       src={item.src}
@@ -102,71 +122,101 @@ const ImageItem = ({ item }: { item: GalleryItem }) => (
         {item.caption}
       </span>
     </div>
-  </div>
+  </motion.div>
 );
 
 const ExperienceGallery = () => {
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
-  const [isPaused, setIsPaused] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number>();
-  const scrollPos = useRef(0);
+  const [activeVideo, setActiveVideo] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
-  const handleSetActive = useCallback((k: string | null) => setActiveVideo(k), []);
+  const handleSetActive = useCallback(
+    (i: number | null) => setActiveVideo(i),
+    []
+  );
 
-  // Duplicate items for seamless loop
-  const loopItems = [...galleryItems, ...galleryItems];
+  // Mobile: horizontal scroll carousel
+  if (isMobile) {
+    return (
+      <div className="mt-16">
+        <div className="flex gap-4 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory scrollbar-hide">
+          {galleryItems.map((item, i) => (
+            <div key={i} className="flex-shrink-0 w-[75vw] snap-center">
+              {item.type === "video" ? (
+                <GalleryVideoItem
+                  item={{ ...item, aspect: "aspect-[4/5]" }}
+                  index={i}
+                  activeVideo={activeVideo}
+                  setActiveVideo={handleSetActive}
+                />
+              ) : (
+                <GalleryImageItem
+                  item={{ ...item, aspect: "aspect-[4/5]" }}
+                  index={i}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    // Calculate half-width (one set of items)
-    const halfWidth = container.scrollWidth / 2;
-    const speed = 0.4; // px per frame — meditative pace
-
-    const tick = () => {
-      if (!isPaused) {
-        scrollPos.current += speed;
-        if (scrollPos.current >= halfWidth) {
-          scrollPos.current -= halfWidth;
-        }
-        container.scrollLeft = scrollPos.current;
-      }
-      animationRef.current = requestAnimationFrame(tick);
-    };
-
-    animationRef.current = requestAnimationFrame(tick);
-    return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    };
-  }, [isPaused]);
+  // Desktop: asymmetric masonry grid
+  const col1 = [galleryItems[0], galleryItems[3], galleryItems[5]];
+  const col2 = [galleryItems[1], galleryItems[4]];
+  const col3 = [galleryItems[2], galleryItems[6]];
 
   return (
-    <div
-      className="w-screen relative left-1/2 -translate-x-1/2"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <div
-        ref={scrollRef}
-        className="flex gap-6 overflow-x-hidden py-2"
-        style={{ scrollBehavior: "auto" }}
-      >
-        {loopItems.map((item, i) => {
-          const key = `${item.src}-${i}`;
-          return item.type === "video" ? (
-            <VideoItem
-              key={key}
-              item={item}
-              uniqueKey={key}
-              activeVideo={activeVideo}
-              setActiveVideo={handleSetActive}
-            />
-          ) : (
-            <ImageItem key={key} item={item} />
-          );
-        })}
+    <div className="mt-16">
+      <div className="grid grid-cols-3 gap-5 items-start">
+        <div className="flex flex-col gap-5 pt-8">
+          {col1.map((item, i) => {
+            const origIndex = galleryItems.indexOf(item);
+            return item.type === "video" ? (
+              <GalleryVideoItem
+                key={origIndex}
+                item={item}
+                index={origIndex}
+                activeVideo={activeVideo}
+                setActiveVideo={handleSetActive}
+              />
+            ) : (
+              <GalleryImageItem key={origIndex} item={item} index={origIndex} />
+            );
+          })}
+        </div>
+        <div className="flex flex-col gap-5">
+          {col2.map((item, i) => {
+            const origIndex = galleryItems.indexOf(item);
+            return item.type === "video" ? (
+              <GalleryVideoItem
+                key={origIndex}
+                item={item}
+                index={origIndex}
+                activeVideo={activeVideo}
+                setActiveVideo={handleSetActive}
+              />
+            ) : (
+              <GalleryImageItem key={origIndex} item={item} index={origIndex} />
+            );
+          })}
+        </div>
+        <div className="flex flex-col gap-5 pt-14">
+          {col3.map((item, i) => {
+            const origIndex = galleryItems.indexOf(item);
+            return item.type === "video" ? (
+              <GalleryVideoItem
+                key={origIndex}
+                item={item}
+                index={origIndex}
+                activeVideo={activeVideo}
+                setActiveVideo={handleSetActive}
+              />
+            ) : (
+              <GalleryImageItem key={origIndex} item={item} index={origIndex} />
+            );
+          })}
+        </div>
       </div>
     </div>
   );

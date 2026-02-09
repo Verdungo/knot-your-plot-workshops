@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import ExperienceGallery from "@/components/ExperienceGallery";
 const PhilosophySection = () => {
-  return <section id="philosophy" className="py-24 md:py-32 bg-gradient-warm overflow-hidden">
+  return <section id="philosophy" className="py-24 md:py-32 bg-gradient-warm">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Text Content */}
           <motion.div initial={{
           opacity: 0,
-          y: 20
+          x: -30
         }} whileInView={{
           opacity: 1,
-          y: 0
+          x: 0
         }} viewport={{
           once: true
         }} transition={{
@@ -24,11 +25,12 @@ const PhilosophySection = () => {
               <span className="text-primary">your mind finds peace</span>
             </h2>
             <div className="space-y-6 text-muted-foreground leading-relaxed">
-              <p className="text-lg">In a world dominated by screens and endless notifications, we spend most of our lives "in our heads." We think, we plan, we worry, but we rarely create something tangible. </p>
-              <p className="text-lg">Mental clarity begins with your hands. Through the meditative ritual of macramé, tactile focus returns to the present moment. </p>
+              <p className="text-lg">In a world dominated by screens and endless notifications, we spend most of our lives "in our heads.” We think, we plan, we worry, but we rarely create something tangible. </p>
+              <p className="text-lg">Mental clarity begins with your hands. Through the meditative ritual of macramé, tactile focus returns to the present moment. </p>
               <p className="text-lg font-medium text-foreground">Expertly facilitated grounding. From digital burnout to creative flow.</p>
             </div>
 
+            {/* Decorative element */}
             <motion.div className="mt-10 flex items-center gap-4" initial={{
             opacity: 0
           }} whileInView={{
@@ -45,12 +47,12 @@ const PhilosophySection = () => {
               <div className="h-px flex-1 bg-gradient-to-l from-accent via-golden to-teal opacity-40" />
             </motion.div>
           </motion.div>
-        </div>
-      </div>
 
-      {/* Edge-to-edge gallery ribbon */}
-      <div className="mt-16">
-        <ExperienceGallery />
+          {/* Experience Gallery */}
+          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}>
+            <ExperienceGallery />
+          </motion.div>
+        </div>
       </div>
     </section>;
 };
