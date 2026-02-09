@@ -21,10 +21,10 @@ type GalleryItem = {
 const galleryItems: GalleryItem[] = [
   { type: "video", src: video1, caption: "Shared focus", aspect: "aspect-[4/5]" },
   { type: "image", src: photo1, caption: "Natural textures", aspect: "aspect-[3/4]" },
-  { type: "video", src: video2, caption: "Creative flow", aspect: "aspect-[4/5]" },
-  { type: "image", src: photo2, caption: "Tactile grounding", aspect: "aspect-[3/4]" },
   { type: "video", src: video3, caption: "Mindful making", aspect: "aspect-[4/5]" },
   { type: "video", src: video4, caption: "Collective calm", aspect: "aspect-[16/9]" },
+  { type: "image", src: photo2, caption: "Tactile grounding", aspect: "aspect-[3/4]" },
+  { type: "video", src: video2, caption: "Creative flow", aspect: "aspect-[4/5]" },
   { type: "video", src: video5, caption: "Hands at work", aspect: "aspect-[4/5]" },
 ];
 
@@ -162,9 +162,9 @@ const ExperienceGallery = () => {
   }
 
   // Desktop: asymmetric masonry grid
-  const col1 = [galleryItems[0], galleryItems[3], galleryItems[5]];
-  const col2 = [galleryItems[1], galleryItems[4]];
-  const col3 = [galleryItems[2], galleryItems[6]];
+  const col1 = [galleryItems[0], galleryItems[4], galleryItems[6]];
+  const col2 = [galleryItems[1], galleryItems[3]];
+  const col3 = [galleryItems[2], galleryItems[5]];
 
   return (
     <div className="mt-16">
