@@ -29,15 +29,6 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl mx-auto"
         >
-          {/* Logo */}
-          <motion.img
-            src={logo}
-            alt="Knot Your Plot"
-            className="w-40 h-40 mx-auto mb-8"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          />
 
           {/* Tagline */}
           <motion.p
