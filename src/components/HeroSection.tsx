@@ -6,7 +6,7 @@ import { MessageCircle, Send } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pb-24">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pb-24 pt-32">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
