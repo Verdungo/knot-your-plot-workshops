@@ -26,14 +26,8 @@ const PhilosophySection = () => {
             </h2>
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p className="text-lg">In a world dominated by screens and endless notifications, we spend most of our lives "in our heads.” We think, we plan, we worry, but we rarely create something tangible. </p>
-              <p className="text-lg">
-                Macramé is more than craft—it's a meditation. The repetitive motion of
-                knotting, the texture of natural rope between your fingers, the gradual
-                emergence of pattern from chaos.
-              </p>
-              <p className="text-lg font-medium text-foreground">
-                This is digital detox made visible. This is grounding made tactile.
-              </p>
+              <p className="text-lg">Mental clarity begins with your hands. Through the meditative ritual of macramé, tactile focus returns to the present moment. </p>
+              <p className="text-lg font-medium text-foreground">We help your team "ground" themselves, turning abstract stress into a beautiful, physical story.</p>
             </div>
 
             {/* Decorative element */}
