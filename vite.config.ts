@@ -5,7 +5,6 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/knot-your-plot-workshops/",
   server: {
     host: "::",
     port: 8080,
