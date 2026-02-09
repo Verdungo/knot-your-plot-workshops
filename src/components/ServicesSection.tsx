@@ -76,7 +76,7 @@ const ServicesSection = () => {
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => {
           const colors = colorClasses[service.color as keyof typeof colorClasses];
-          return <motion.div key={service.title} className={`group relative bg-card rounded-2xl p-8 border-2 border-transparent transition-all duration-300 hover:shadow-elevated ${colors.border}`} initial={{
+          return <motion.div key={service.title} className={`group relative bg-card rounded-2xl p-8 md:p-10 border-2 border-transparent transition-all duration-300 hover:shadow-elevated ${colors.border} flex flex-col`} initial={{
             opacity: 0,
             y: 30
           }} whileInView={{
@@ -93,7 +93,7 @@ const ServicesSection = () => {
                 </div>
 
                 {/* Location badge */}
-                <span className="absolute top-8 right-8 text-xs font-medium text-muted-foreground bg-secondary px-3 py-1 rounded-full">
+                <span className="absolute top-8 right-8 md:top-10 md:right-10 text-xs font-medium text-muted-foreground bg-secondary px-3 py-1 rounded-full">
                   {service.location}
                 </span>
 
@@ -101,7 +101,7 @@ const ServicesSection = () => {
                 <h3 className="font-display text-2xl font-semibold text-foreground mb-3">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed min-h-[4.5rem]">
                   {service.description}
                 </p>
 
@@ -113,10 +113,12 @@ const ServicesSection = () => {
                     </li>)}
                 </ul>
 
-                {/* CTA */}
-                <Button variant="outline" className="w-full" asChild>
-                  <a href="#contact">Learn More</a>
-                </Button>
+                {/* CTA - pushed to bottom */}
+                <div className="mt-auto">
+                  <Button variant="outline" className="w-full" asChild>
+                    <a href="#contact">Learn More</a>
+                  </Button>
+                </div>
               </motion.div>;
         })}
         </div>
