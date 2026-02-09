@@ -39,7 +39,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a href="#" className="flex items-center gap-3">
-              <img src={logo} alt="Knot Your Plot" className="w-10 h-10" />
+              <img src={logo} alt="Knot Your Plot" className="h-8 w-auto object-contain" />
               <span className="font-display text-lg font-semibold text-foreground hidden sm:block">
                 Knot Your Plot
               </span>
