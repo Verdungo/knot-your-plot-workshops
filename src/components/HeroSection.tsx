@@ -95,15 +95,7 @@ const HeroSection = () => {
         duration: 2,
         ease: "easeInOut"
       }}>
-          <div className="w-6 h-10 border-2 border-foreground/30 rounded-full flex items-start justify-center p-2">
-            <motion.div className="w-1.5 h-1.5 bg-foreground/50 rounded-full" animate={{
-            y: [0, 12, 0]
-          }} transition={{
-            repeat: Infinity,
-            duration: 2,
-            ease: "easeInOut"
-          }} />
-          </div>
+          
         </motion.div>
       </div>
     </section>;
