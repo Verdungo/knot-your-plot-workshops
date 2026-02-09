@@ -161,7 +161,7 @@ const ExperienceGallery = () => {
   }
 
   // Desktop: asymmetric masonry grid
-  const col1 = [galleryItems[0], galleryItems[4], galleryItems[6]];
+  const col1 = [galleryItems[0], galleryItems[4]];
   const col2 = [galleryItems[1], galleryItems[3]];
   const col3 = [galleryItems[2], galleryItems[5]];
 
