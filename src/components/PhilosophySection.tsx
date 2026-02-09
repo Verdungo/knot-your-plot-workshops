@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import ExperienceGallery from "@/components/ExperienceGallery";
 const PhilosophySection = () => {
-  return <section id="philosophy" className="py-24 md:py-32 bg-gradient-warm">
+  return <section id="philosophy" className="py-24 md:py-32 bg-gradient-warm overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div initial={{
@@ -46,6 +46,11 @@ const PhilosophySection = () => {
             </motion.div>
           </motion.div>
         </div>
+      </div>
+
+      {/* Edge-to-edge gallery ribbon */}
+      <div className="mt-16">
+        <ExperienceGallery />
       </div>
     </section>;
 };
