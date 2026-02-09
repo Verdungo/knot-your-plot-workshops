@@ -27,7 +27,7 @@ const PhilosophySection = () => {
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p className="text-lg">In a world dominated by screens and endless notifications, we spend most of our lives "in our heads.” We think, we plan, we worry, but we rarely create something tangible. </p>
               <p className="text-lg">Mental clarity begins with your hands. Through the meditative ritual of macramé, tactile focus returns to the present moment. </p>
-              <p className="text-lg font-medium text-foreground">We help your team "ground" themselves, turning abstract stress into a beautiful, physical story.</p>
+              <p className="text-lg font-medium text-foreground">Expertly facilitated grounding. From digital burnout to creative flow.</p>
             </div>
 
             {/* Decorative element */}
