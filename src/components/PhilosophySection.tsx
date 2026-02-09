@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import processImage from "@/assets/process.png";
+import ExperienceGallery from "@/components/ExperienceGallery";
 const PhilosophySection = () => {
   return <section id="philosophy" className="py-24 md:py-32 bg-gradient-warm">
       <div className="container mx-auto px-6">
@@ -48,41 +48,9 @@ const PhilosophySection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Image */}
-          <motion.div className="relative" initial={{
-          opacity: 0,
-          x: 30
-        }} whileInView={{
-          opacity: 1,
-          x: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.8,
-          delay: 0.2
-        }}>
-            <div className="relative rounded-2xl overflow-hidden shadow-elevated">
-              <img src={processImage} alt="The macramé process - hands creating beautiful knots" className="w-full h-auto" />
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent" />
-            </div>
-
-            {/* Floating accent */}
-            <motion.div className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-accent/10 blur-2xl" animate={{
-            scale: [1, 1.2, 1]
-          }} transition={{
-            repeat: Infinity,
-            duration: 4,
-            ease: "easeInOut"
-          }} />
-            <motion.div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-teal/10 blur-2xl" animate={{
-            scale: [1, 1.3, 1]
-          }} transition={{
-            repeat: Infinity,
-            duration: 5,
-            ease: "easeInOut",
-            delay: 1
-          }} />
+          {/* Experience Gallery */}
+          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}>
+            <ExperienceGallery />
           </motion.div>
         </div>
       </div>
