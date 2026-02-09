@@ -37,17 +37,32 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <a href="#" className="flex items-center gap-3">
-              <img src={logo} alt="Knot Your Plot" className="h-8 w-auto object-contain" />
-              <span className="font-display text-lg font-semibold text-foreground hidden sm:block">
-                Knot Your Plot
-              </span>
+            {/* Left Nav Links */}
+            <nav className="hidden md:flex items-center gap-6 flex-1">
+              {navLinks.slice(0, 2).map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+
+            {/* Center Logo */}
+            <a href="#" className="flex items-center justify-center shrink-0 px-4">
+              <img
+                src={logo}
+                alt="Knot Your Plot"
+                className="h-10 w-auto object-contain"
+                style={{ maxHeight: 'calc(100% - 8px)' }}
+              />
             </a>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
+            {/* Right Nav Links + CTA */}
+            <nav className="hidden md:flex items-center justify-end gap-6 flex-1">
+              {navLinks.slice(2).map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
