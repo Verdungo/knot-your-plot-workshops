@@ -19,7 +19,7 @@ type GalleryItem = {
 };
 
 const galleryItems: GalleryItem[] = [
-  { type: "video", src: video1, caption: "Shared focus", aspect: "aspect-[4/5]" },
+  { type: "video", src: video1, caption: "Tangible results", aspect: "aspect-[4/5]" },
   { type: "image", src: photo1, caption: "Natural textures", aspect: "aspect-[3/4]" },
   { type: "video", src: video3, caption: "Mindful making", aspect: "aspect-[4/5]" },
   { type: "video", src: video5, caption: "Hands at work", aspect: "aspect-[4/5]" },
