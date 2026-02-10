@@ -24,9 +24,9 @@ const FloatingContact = () => {
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[hsl(142,70%,49%)]/10 hover:bg-[hsl(142,70%,49%)]/20 transition-colors"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#718379]/10 hover:bg-[#718379]/20 transition-colors"
               >
-                <MessageCircle className="w-5 h-5 text-[hsl(142,70%,49%)]" />
+                <MessageCircle className="w-5 h-5 text-[#333333]" />
                 <span className="text-sm font-medium text-foreground">WhatsApp</span>
               </a>
               <a
