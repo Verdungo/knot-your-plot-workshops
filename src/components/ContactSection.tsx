@@ -47,8 +47,8 @@ const ContactSection = () => {
         }}>
             {/* WhatsApp */}
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="group bg-card rounded-2xl p-8 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-[hsl(142,70%,49%)]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <MessageCircle className="w-8 h-8 text-[hsl(142,70%,49%)]" />
+              <div className="w-16 h-16 rounded-full bg-[#718379]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <MessageCircle className="w-8 h-8 text-[#333333]" />
               </div>
               <h3 className="font-display text-xl font-semibold text-foreground mb-2">
                 WhatsApp
