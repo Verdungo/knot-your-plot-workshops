@@ -30,7 +30,7 @@ const ContactSection = () => {
             <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-6">
               Ready to ground your team?
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Whether you're planning a team retreat, looking for unique corporate gifts, or simply curious, we'd love to hear from you.</p>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Whether you're planning a team building, looking for unique corporate gifts, or simply curious, we'd love to hear from you.</p>
           </motion.div>
 
           {/* CTA Cards */}
