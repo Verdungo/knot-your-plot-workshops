@@ -63,8 +63,8 @@ const ContactSection = () => {
 
             {/* Telegram */}
             <a href={telegramLink} target="_blank" rel="noopener noreferrer" className="group bg-card rounded-2xl p-8 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-[hsl(200,100%,40%)]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <Send className="w-8 h-8 text-[hsl(200,100%,40%)]" />
+              <div className="w-16 h-16 rounded-full bg-[#718379]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Send className="w-8 h-8 text-[#333333]" />
               </div>
               <h3 className="font-display text-xl font-semibold text-foreground mb-2">
                 Telegram
