@@ -47,8 +47,8 @@ const ContactSection = () => {
         }}>
             {/* WhatsApp */}
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="group bg-card rounded-2xl p-8 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-[hsl(142,70%,49%)]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <MessageCircle className="w-8 h-8 text-[hsl(142,70%,49%)]" />
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <MessageCircle className="w-8 h-8 text-primary" />
               </div>
               <h3 className="font-display text-xl font-semibold text-foreground mb-2">
                 WhatsApp
@@ -56,15 +56,15 @@ const ContactSection = () => {
               <p className="text-muted-foreground mb-4">
                 Quick questions? Let's chat!
               </p>
-              <Button variant="whatsapp" size="lg">
+              <Button variant="cta" size="lg">
                 Message on WhatsApp
               </Button>
             </a>
 
             {/* Telegram */}
             <a href={telegramLink} target="_blank" rel="noopener noreferrer" className="group bg-card rounded-2xl p-8 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-[hsl(200,100%,40%)]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <Send className="w-8 h-8 text-[hsl(200,100%,40%)]" />
+              <div className="w-16 h-16 rounded-full bg-teal/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <Send className="w-8 h-8 text-teal" />
               </div>
               <h3 className="font-display text-xl font-semibold text-foreground mb-2">
                 Telegram
@@ -72,7 +72,7 @@ const ContactSection = () => {
               <p className="text-muted-foreground mb-4">
                 Prefer Telegram? I'm here too!
               </p>
-              <Button variant="telegram" size="lg">
+              <Button variant="cta" size="lg">
                 Message on Telegram
               </Button>
             </a>
