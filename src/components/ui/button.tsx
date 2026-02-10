@@ -19,8 +19,8 @@ const buttonVariants = cva(
         cta: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-soft hover:shadow-elevated hover:-translate-y-0.5 font-semibold",
         hero: "bg-primary text-primary-foreground px-8 py-4 text-base hover:bg-primary/90 shadow-elevated hover:-translate-y-1",
         floating: "bg-accent text-accent-foreground rounded-full shadow-elevated hover:shadow-soft hover:scale-105 px-6",
-        whatsapp: "bg-[hsl(142,70%,49%)] text-white hover:bg-[hsl(142,70%,44%)] shadow-elevated hover:shadow-soft hover:scale-105",
-        telegram: "bg-[hsl(200,100%,40%)] text-white hover:bg-[hsl(200,100%,35%)] shadow-elevated hover:shadow-soft hover:scale-105",
+        whatsapp: "bg-[#718379] text-white hover:bg-[#5f706a] shadow-elevated hover:shadow-soft hover:scale-105",
+        telegram: "border border-[#718379] bg-transparent text-[#718379] hover:bg-[#718379] hover:text-white shadow-soft hover:shadow-elevated hover:scale-105",
       },
       size: {
         default: "h-10 px-4 py-2",
