@@ -24,18 +24,18 @@ const FloatingContact = () => {
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#718379]/10 hover:bg-[#718379]/20 transition-colors"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[hsl(142,70%,49%)]/10 hover:bg-[hsl(142,70%,49%)]/20 transition-colors"
               >
-                <MessageCircle className="w-5 h-5 text-[#333333]" />
+                <MessageCircle className="w-5 h-5 text-[hsl(142,70%,49%)]" />
                 <span className="text-sm font-medium text-foreground">WhatsApp</span>
               </a>
               <a
                 href={telegramLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#718379]/10 hover:bg-[#718379]/20 transition-colors"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[hsl(200,100%,40%)]/10 hover:bg-[hsl(200,100%,40%)]/20 transition-colors"
               >
-                <Send className="w-5 h-5 text-[#333333]" />
+                <Send className="w-5 h-5 text-[hsl(200,100%,40%)]" />
                 <span className="text-sm font-medium text-foreground">Telegram</span>
               </a>
             </div>
