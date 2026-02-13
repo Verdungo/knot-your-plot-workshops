@@ -17,7 +17,7 @@ const testimonials = [
   featured: false
 },
 {
-  quote: "As a founder of a business community, I highly value formats that help people step away from screens and reconnect in a meaningful, human way. Evgenia's macramé workshops have been a wonderful experience for our community. Thanks to her clear guidance and supportive approach, everyone was able to create their own piece, regardless of prior experience. The workshops fostered de-digitalisation and natural team bonding, all within a very warm, welcoming atmosphere that encouraged connection and presence.",
+  quote: "As a founder of a business community, I highly value formats that help people step away from screens and reconnect in a meaningful, human way. Evgenia's macramé workshops have been a wonderful experience for our community.\n\nThanks to her clear guidance and supportive approach, everyone was able to create their own piece, regardless of prior experience. The workshops fostered de-digitalisation and natural team bonding, all within a very warm, welcoming atmosphere that encouraged connection and presence.",
   author: "Irina Sh.",
   role: "Business Community Founder",
   company: "Ladies Who Talk, Lisbon",
@@ -69,7 +69,7 @@ const TestimonialsSection = () => {
 
               {/* Quote text */}
               <p
-              className="font-sans text-base leading-[1.75] mb-8 flex-1"
+              className="font-sans text-base leading-[1.75] mb-8 flex-1 whitespace-pre-line"
               style={{
                 color: testimonial.featured ? "#FFFFFF" : "#333333"
               }}>
