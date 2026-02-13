@@ -5,7 +5,7 @@ const testimonials = [
 {
   quote: "I am delighted with the workshop! Firstly, I realized that I can make very decent things from macramé in just 40-50 minutes. Secondly, the atmosphere of collective creativity is very captivating and brings people closer. Excellent idea for team building!",
   author: "Praskovia R.",
-  role: "",
+  role: "Engineering Manager",
   company: "",
   featured: false
 },
