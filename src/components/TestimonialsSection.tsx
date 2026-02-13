@@ -3,24 +3,24 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
 {
-  quote: "Our team walked in stressed and walked out calm, connected, and holding something beautiful they made themselves. The impact lasted weeks.",
+  quote: "I am delighted with the workshop! Firstly, I realized that I can make very decent things from macramé in just 40-50 minutes. Secondly, the atmosphere of collective creativity is very captivating and brings people closer. Excellent idea for team building!",
+  author: "Praskovia R.",
+  role: "",
+  company: "",
+  featured: false
+},
+{
+  quote: "I spent such great time in Jenya's macramé workshops! 🙌 Everything was explained in such a clear and accessible way, so the process was easy and relaxed. Zhenya created a very friendly and supportive atmosphere, I truly loved every moment and got incredible satisfaction from the final results 💖 It was an absolute pleasure, and I would happily join again!",
   author: "Maria S.",
-  role: "HR Director",
-  company: "Tech Startup, Lisbon",
+  role: "Data Scientist",
+  company: "",
   featured: false
 },
 {
-  quote: "The online workshop exceeded our expectations. Despite being remote, our team felt genuinely connected. The kits arrived beautifully packaged.",
-  author: "Anna K.",
-  role: "People Operations Lead",
-  company: "Marketing Agency, Berlin",
-  featured: false
-},
-{
-  quote: "We've tried many team activities. This was different—quiet, focused, and surprisingly bonding. Highly recommend for creative teams.",
-  author: "James T.",
-  role: "Community Manager & Founder",
-  company: "Co-working Space, Amsterdam",
+  quote: "As a founder of a business community, I highly value formats that help people step away from screens and reconnect in a meaningful, human way. Evgenia's macramé workshops have been a wonderful experience for our community. Thanks to her clear guidance and supportive approach, everyone was able to create their own piece, regardless of prior experience. The workshops fostered de-digitalisation and natural team bonding, all within a very warm, welcoming atmosphere that encouraged connection and presence.",
+  author: "Irina Sh.",
+  role: "Business Community Founder",
+  company: "Ladies Who Talk, Lisbon",
   featured: true
 }];
 
