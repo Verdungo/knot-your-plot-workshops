@@ -39,7 +39,7 @@ const TestimonialsSection = () => {
           <span className="inline-block text-sm font-medium tracking-widest text-accent uppercase mb-4">
             What They Say
           </span>
-          <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground">The Big Impact of the Small Knots
+          <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground">The Big Impact of Small Knots
 
           </h2>
         </motion.div>
