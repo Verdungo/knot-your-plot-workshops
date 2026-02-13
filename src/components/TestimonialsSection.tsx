@@ -3,7 +3,7 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Our team walked in stressed and walked out calm, connected, and holding something beautiful they made themselves. The impact lasted weeks.",
+    quote: "I am delighted with the workshop! Firstly, I realized that I can make very decent things from macramé in just 40-50 minutes. Secondly, the atmosphere of collective creativity is very captivating and brings people closer. Excellent idea for team building!",
     author: "Maria S.",
     role: "HR Director",
     company: "Tech Startup, Lisbon",
