@@ -20,7 +20,7 @@ const testimonials = [
     quote: "As a founder of a business community, I highly value formats that help people step away from screens and reconnect in a meaningful, human way. Evgenia's macramé workshops have been a wonderful experience for our community.\nThanks to her clear guidance and supportive approach, everyone was able to create their own piece, regardless of prior experience. The workshops fostered de-digitalisation and natural team bonding, all within a very warm, welcoming atmosphere that encouraged connection and presence.",
     author: "Irina Shurmina",
     role: "Business community founder",
-    company: "Co-working Space, Amsterdam",
+    company: "Ladies Who Talk, Lisbon",
     featured: true,
   },
 ];
