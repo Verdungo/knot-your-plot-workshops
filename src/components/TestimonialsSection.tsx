@@ -6,7 +6,7 @@ const testimonials = [
     quote: "I am delighted with the workshop! Firstly, I realized that I can make very decent things from macramé in just 40-50 minutes. Secondly, the atmosphere of collective creativity is very captivating and brings people closer. Excellent idea for team building!",
     author: "Praskovia Root",
     role: "Engineering Manager",
-    company: "Tech Startup, Lisbon",
+    company: "",
     featured: false,
   },
   {
@@ -104,16 +104,18 @@ const TestimonialsSection = () => {
                 >
                   {testimonial.role}
                 </p>
-                <p
-                  className="text-sm"
-                  style={{
-                    color: testimonial.featured
-                      ? "rgba(255,255,255,0.75)"
-                      : "rgba(51,51,51,0.6)",
-                  }}
-                >
-                  {testimonial.company}
-                </p>
+                {testimonial.company && (
+                  <p
+                    className="text-sm"
+                    style={{
+                      color: testimonial.featured
+                        ? "rgba(255,255,255,0.75)"
+                        : "rgba(51,51,51,0.6)",
+                    }}
+                  >
+                    {testimonial.company}
+                  </p>
+                )}
               </div>
             </motion.div>
           ))}
