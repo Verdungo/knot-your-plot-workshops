@@ -4,7 +4,7 @@ import { Quote } from "lucide-react";
 const testimonials = [
   {
     quote: "I am delighted with the workshop! Firstly, I realized that I can make very decent things from macramé in just 40-50 minutes. Secondly, the atmosphere of collective creativity is very captivating and brings people closer. Excellent idea for team building!",
-    author: "Maria S.",
+    author: "Praskovia Root",
     role: "HR Director",
     company: "Tech Startup, Lisbon",
     featured: false,
