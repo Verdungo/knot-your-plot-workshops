@@ -137,7 +137,7 @@ const ExperienceGallery = () => {
   if (isMobile) {
     return (
       <div className="mt-16">
-        <div className="flex gap-4 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory scrollbar-hide">
+        <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
           {galleryItems.map((item, i) => (
             <div key={i} className="flex-shrink-0 w-[75vw] snap-center">
               {item.type === "video" ? (
