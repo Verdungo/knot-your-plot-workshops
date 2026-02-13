@@ -5,6 +5,7 @@ const services = [{
   icon: MapPin,
   title: "In-Person Workshops",
   location: "Portugal",
+  price: "From €40/person · min. €200",
   description: "Fully-equipped sessions at your location. We bring everything—premium materials, tools, and the expertise to guide your team through a memorable experience.",
   features: ["All materials included", "On-site facilitation", "Group sizes 5-15", "2-3 hour sessions"],
   color: "accent"
@@ -12,6 +13,7 @@ const services = [{
   icon: Video,
   title: "Online Workshops",
   location: "Europe-wide",
+  price: "From €25/person + delivery costs",
   description: "Bridge the distance for distributed teams. We ship custom DIY kits in advance and host a live, synchronized session to create together in a digital-free headspace.",
   features: ["Kits shipped in advance", "Live instruction via Zoom", "Interactive Q&A", "Recording available"],
   color: "teal"
@@ -19,6 +21,7 @@ const services = [{
   icon: Gift,
   title: "Corporate DIY Kits",
   location: "Worldwide shipping",
+  price: "Price upon request",
   description: "Premium gift boxes with video tutorials for self-paced creativity. An unforgettable wellness gift for your team.",
   features: ["Beautiful packaging", "Video tutorials included", "Premium materials", "Custom branding options"],
   color: "golden"
@@ -26,6 +29,7 @@ const services = [{
   icon: Palette,
   title: "Custom Corporate Gifts",
   location: "Made to order",
+  price: "Price upon request",
   description: "Finished macramé pieces tailored to your brand's color palette. Unique, handcrafted items that tell a story.",
   features: ["Brand color matching", "Bulk orders available", "Handcrafted with care", "Gift-ready packaging"],
   color: "primary"
@@ -98,9 +102,12 @@ const ServicesSection = () => {
                 </span>
 
                 {/* Content */}
-                <h3 className="font-display text-2xl font-semibold text-foreground mb-3">
+                <h3 className="font-display text-2xl font-semibold text-foreground mb-2">
                   {service.title}
                 </h3>
+                <p className={`text-sm font-medium ${colors.iconText} mb-3`}>
+                  {service.price}
+                </p>
                 <p className="text-muted-foreground mb-6 leading-relaxed min-h-[4.5rem]">
                   {service.description}
                 </p>
