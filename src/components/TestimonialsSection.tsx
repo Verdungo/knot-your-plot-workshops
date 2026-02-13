@@ -12,7 +12,7 @@ const testimonials = [
   {
     quote: "I spent such great time in Jenya's macramé workshops! 🙌 Everything was explained in such a clear and accessible way, so the process was easy and relaxed. Jenya created a very friendly and supportive atmosphere, I truly loved every moment and got incredible satisfaction from the final results 💖 It was an absolute pleasure, and I would happily join again!",
     author: "Maria Surtaeva",
-    role: "People Operations Lead",
+    role: "Data Scientist",
     company: "Marketing Agency, Berlin",
     featured: false,
   },
