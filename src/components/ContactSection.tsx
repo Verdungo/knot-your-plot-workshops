@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Send, MapPin, Mail, Phone } from "lucide-react";
 const ContactSection = () => {
-  const whatsappLink = "https://wa.me/351913644619"; // Replace with actual number
+  const whatsappLink = "https://api.whatsapp.com/send/?phone=351913644619"; // Replace with actual number
   const telegramLink = "https://t.me/zhenyaryashko"; // Replace with actual username
 
   return (
