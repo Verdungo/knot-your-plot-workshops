@@ -117,7 +117,7 @@ const ContactSection = () => {
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-5 h-5 text-accent" />
-              <span>hello@knotyourplot.com</span>
+              <span>knotyourplot@gmail.com</span>
             </div>
           </motion.div>
         </div>
