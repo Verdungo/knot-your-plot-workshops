@@ -5,7 +5,7 @@ import { MessageCircle, Send, X } from "lucide-react";
 const FloatingContact = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const whatsappLink = "https://api.whatsapp.com/send/?phone=351913644619";
+  const whatsappLink = "https://wa.me/351913644619";
   const telegramLink = "https://t.me/your-username-here"; // Replace with actual username
 
   return (
