@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Send, Gift, Sparkles, Package, Clock, Users, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
-import hero from "@/assets/holiday/hero.jpg";
+import flatlay from "@/assets/holiday/santa-workshop-flatlay.jpg.asset.json";
 import angel from "@/assets/holiday/angel.jpg";
 import tree from "@/assets/holiday/tree.jpg";
 import ring from "@/assets/holiday/ring.jpg";
@@ -54,7 +54,7 @@ const Contacts = () => (
 );
 
 const Holiday = () => (
-  <div className="min-h-screen bg-background text-foreground">
+  <div className="theme-workshop min-h-screen bg-background text-foreground">
     <header className="absolute top-0 inset-x-0 z-20">
       <div className="container mx-auto px-6 py-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
@@ -66,22 +66,27 @@ const Holiday = () => (
     </header>
 
     {/* Hero */}
-    <section className="relative min-h-[90vh] flex items-center pt-32 pb-24 overflow-hidden">
-      <img src={hero} alt="Team knotting macramé ornaments around a festive table" width={1600} height={1008} className="absolute inset-0 w-full h-full object-cover" />
-      <div className="absolute inset-0 bg-background/75" />
-      <div className="container mx-auto px-6 relative z-10 text-center max-w-3xl">
-        <span className="inline-flex items-center gap-2 text-sm font-medium tracking-widest text-accent uppercase mb-6">
-          <Sparkles className="h-4 w-4" /> Christmas team workshops
-        </span>
-        <h1 className="font-display text-4xl md:text-6xl font-semibold uppercase leading-tight mb-6">
-          Let's tie up the year <span className="text-accent">together.</span>
-        </h1>
-        <p className="text-lg md:text-xl text-muted-foreground mb-10">
-          A warm, screen-free evening for your team. Everyone makes 2–3 macramé ornaments to take home — beautifully wrapped and ready to gift.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="cta" size="lg" asChild><a href="#book">Book a December date</a></Button>
-          <Button variant="outline" size="lg" asChild><a href="#gifts">Corporate gifts</a></Button>
+    <section className="pt-28 pb-20 md:pt-32 md:pb-28">
+      <div className="h-2 bg-kraft-stripes mb-12 md:mb-16" aria-hidden="true" />
+      <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="text-center lg:text-left">
+          <span className="inline-flex items-center gap-2 text-sm font-medium tracking-widest text-accent uppercase mb-6">
+            <Sparkles className="h-4 w-4" /> Christmas team workshops
+          </span>
+          <h1 className="font-display text-4xl md:text-6xl font-semibold uppercase leading-tight mb-6">
+            Let's tie up the year <span className="text-accent">together.</span>
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto lg:mx-0">
+            A warm, screen-free evening in Santa's workshop for your team. Everyone makes 2–3 macramé ornaments to take home — wrapped in kraft paper and ready to gift.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <Button variant="cta" size="lg" asChild><a href="#book">Book a December date</a></Button>
+            <Button variant="outline" size="lg" asChild><a href="#gifts">Corporate gifts</a></Button>
+          </div>
+        </div>
+        <div className="relative max-w-md mx-auto w-full">
+          <div className="absolute -inset-3 rotate-2 rounded-lg bg-secondary" aria-hidden="true" />
+          <img src={flatlay.url} alt="Macramé Santa, wreath and candy cane on kraft paper" width={960} height={1280} className="relative w-full aspect-[3/4] object-cover rounded-lg -rotate-1 shadow-elevated" />
         </div>
       </div>
     </section>
