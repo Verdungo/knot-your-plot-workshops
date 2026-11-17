@@ -6,15 +6,21 @@ import hero from "@/assets/holiday/hero.jpg";
 import angel from "@/assets/holiday/angel.jpg";
 import tree from "@/assets/holiday/tree.jpg";
 import ring from "@/assets/holiday/ring.jpg";
+import cane from "@/assets/holiday/cane.jpg";
+import snowflake from "@/assets/holiday/snowflake.jpg";
+import santa from "@/assets/holiday/santa.jpg";
 
 const msg = encodeURIComponent("Hi! I'd like to book a Christmas macramé workshop for our team.");
 const whatsapp = `https://wa.me/351913644619?text=${msg}`;
 const telegram = "https://t.me/zhenyaryashko";
 
 const ornaments = [
-  { img: angel, title: "Christmas Angel", text: "Airy cotton wings and a wooden bead head — a quiet keepsake for the tree." },
   { img: tree, title: "Mini Tree", text: "A simple knotted fir with a wooden star. Hang it, or tie it onto a gift." },
-  { img: ring, title: "Wreath Ring", text: "A natural wooden ring dressed in soft knots and a terracotta ribbon." },
+  { img: ring, title: "Wreath", text: "A natural wooden ring dressed in soft knots and a terracotta ribbon." },
+  { img: angel, title: "Christmas Angel", text: "Airy cotton wings and a wooden bead head — a quiet keepsake for the tree." },
+  { img: cane, title: "Candy Cane", text: "Cream and terracotta spirals — a sweet classic, knotted by hand." },
+  { img: snowflake, title: "Snowflake", text: "Six soft cotton arms with little fringes. No two turn out the same." },
+  { img: santa, title: "Santa", text: "A cosy knotted hat, a fluffy cotton beard and a wooden bead nose." },
 ];
 
 const timeline = [
@@ -68,7 +74,7 @@ const Holiday = () => (
           <Sparkles className="h-4 w-4" /> Christmas team workshops
         </span>
         <h1 className="font-display text-4xl md:text-6xl font-semibold uppercase leading-tight mb-6">
-          Hands first, <span className="text-accent">holidays later.</span>
+          Let's tie up the year <span className="text-accent">together.</span>
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground mb-10">
           A warm, screen-free evening for your team. Everyone makes 2–3 macramé ornaments to take home — beautifully wrapped and ready to gift.
@@ -85,10 +91,10 @@ const Holiday = () => (
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-sm font-medium tracking-widest text-accent uppercase">What we make</span>
-          <h2 className="font-display text-3xl md:text-5xl font-semibold mt-4 mb-4">Three little ornaments</h2>
-          <p className="text-muted-foreground text-lg">Natural cotton, wood and simple knots. Each guest chooses 2–3 to make.</p>
+          <h2 className="font-display text-3xl md:text-5xl font-semibold mt-4 mb-4">Choose your ornaments</h2>
+          <p className="text-muted-foreground text-lg">Six designs in natural cotton and wood. Each guest picks 2–3 to make.</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {ornaments.map((o) => (
             <article key={o.title} className="group">
               <div className="overflow-hidden rounded-lg mb-5 bg-secondary">
