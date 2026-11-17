@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Send, Gift, Sparkles, Package, Clock, Users, MapPin } from "lucide-react";
+import { cn } from "@/lib/utils";
 import logo from "@/assets/logo.png";
 import flatlay from "@/assets/holiday/santa-workshop-flatlay.jpg.asset.json";
 import angel from "@/assets/holiday/angel.jpg";
@@ -53,8 +54,35 @@ const Contacts = () => (
   </div>
 );
 
+const TONES = ["gold", "cream", "red", "gold", "cream", "gold"] as const;
+
+const LIGHTS = Array.from({ length: 20 }, (_, i) => ({
+  tone: TONES[i % TONES.length],
+  stem: 6 + ((i * 13) % 5) * 4,
+  dur: 3.6 + ((i * 7) % 6) * 0.8,
+  delay: (i % 5) * 0.9,
+  slim: i % 3 === 1,
+}));
+
+const FairyLights = () => (
+  <div className="relative mb-12 h-10 md:mb-16" aria-hidden="true">
+    <div className="absolute inset-x-0 top-0 h-px bg-border" />
+    <div className="absolute inset-x-0 top-0 flex items-start justify-between px-3 sm:px-6">
+      {LIGHTS.map((l, i) => (
+        <span key={i} className={cn("flex flex-col items-center", l.slim && "hidden sm:flex")}>
+          <span className="w-px bg-border" style={{ height: `${l.stem}px` }} />
+          <span
+            className={cn("fairy-bulb", `fairy-bulb--${l.tone}`)}
+            style={{ animationDuration: `${l.dur}s`, animationDelay: `${l.delay}s` }}
+          />
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
 const Holiday = () => (
-  <div className="theme-workshop min-h-screen bg-background text-foreground">
+  <div className="theme-workshop paper-grain overflow-x-hidden min-h-screen bg-background text-foreground">
     <header className="absolute top-0 inset-x-0 z-20">
       <div className="container mx-auto px-6 py-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
@@ -67,7 +95,7 @@ const Holiday = () => (
 
     {/* Hero */}
     <section className="pt-28 pb-20 md:pt-32 md:pb-28">
-      <div className="h-2 bg-kraft-stripes mb-12 md:mb-16" aria-hidden="true" />
+      <FairyLights />
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div className="text-center lg:text-left">
           <span className="inline-flex items-center gap-2 text-sm font-medium tracking-widest text-accent uppercase mb-6">
@@ -85,6 +113,7 @@ const Holiday = () => (
           </div>
         </div>
         <div className="relative max-w-md mx-auto w-full">
+          <div className="hero-warm-glow pointer-events-none absolute -inset-10 rounded-full" aria-hidden="true" />
           <div className="absolute -inset-3 rotate-2 rounded-lg bg-secondary" aria-hidden="true" />
           <img src={flatlay.url} alt="Macramé Santa, wreath and candy cane on kraft paper" width={960} height={1280} className="relative w-full aspect-[3/4] object-cover rounded-lg -rotate-1 shadow-elevated" />
         </div>
