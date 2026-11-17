@@ -104,16 +104,6 @@ const TestimonialsSection = () => {
 
                   {testimonial.role}
                 </p>
-                <p
-                className="text-sm"
-                style={{
-                  color: testimonial.featured ?
-                  "rgba(255,255,255,0.75)" :
-                  "rgba(51,51,51,0.6)"
-                }}>
-
-                  {testimonial.company}
-                </p>
               </div>
             </motion.div>
           )}
