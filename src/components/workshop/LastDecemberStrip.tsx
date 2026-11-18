@@ -91,13 +91,13 @@ const LastDecemberStrip = () => {
         </div>
         <div
           ref={scroller}
-          className="ld-strip -mx-6 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-6 px-6 pb-4"
+          className="ld-strip -mx-6 -mb-6 mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-6 px-6 pb-10 pt-4"
         >
           {items.map((item) => (
-            <figure key={item.caption} className="relative shrink-0 snap-start">
+            <figure key={item.caption} className="w-fit max-w-[calc(100vw-5.5rem)] shrink-0 snap-start">
               <div
-                className="workshop-card-lift h-[300px] max-w-[calc(100vw-5.5rem)] overflow-hidden rounded-2xl lg:h-[360px]"
-                style={{ aspectRatio: item.aspect, boxShadow: "0 10px 30px rgba(44,32,24,0.14)" }}
+                className="workshop-card-lift relative h-[300px] w-full overflow-hidden rounded-2xl lg:h-[360px]"
+                style={{ aspectRatio: item.aspect, boxShadow: "0 6px 20px rgba(44,32,24,0.12)" }}
               >
                 {item.type === "image" ? (
                   <img src={item.src} alt={item.alt} width={item.width} height={item.height} loading="lazy" decoding="async" className="h-full w-full object-cover" />
@@ -109,13 +109,13 @@ const LastDecemberStrip = () => {
                   className="pointer-events-none absolute inset-x-0 bottom-0 h-[90px] rounded-b-2xl"
                   style={{ background: "linear-gradient(to bottom, rgba(44,32,24,0) 0%, rgba(44,32,24,0.72) 100%)" }}
                 />
+                <p
+                  className="pointer-events-none absolute inset-x-4 bottom-4 line-clamp-2 text-[13px] font-medium leading-snug"
+                  style={{ color: "#FFFFFF", textShadow: "0 1px 2px rgba(0,0,0,0.35)" }}
+                >
+                  {item.caption}
+                </p>
               </div>
-              <figcaption
-                className="pointer-events-none absolute inset-x-4 bottom-4 line-clamp-2 text-[13px] font-medium leading-snug"
-                style={{ color: "#FFFFFF", textShadow: "0 1px 2px rgba(0,0,0,0.35)" }}
-              >
-                {item.caption}
-              </figcaption>
             </figure>
           ))}
           <div className="w-px shrink-0" aria-hidden="true" />
