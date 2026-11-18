@@ -302,6 +302,40 @@
   }
 }
 
+/* Tidy collage of the four ornament photos in the hero */
+.collage-card {
+  position: relative;
+  padding: 0.75rem;
+  border-radius: 14px;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border) / 0.55);
+  box-shadow: 0 14px 32px -16px hsla(18, 30%, 18%, 0.34),
+              0 3px 8px -3px hsla(18, 30%, 18%, 0.14);
+  transform: rotate(var(--rot, 0deg)) translate(var(--dx, 0px), var(--dy, 0px));
+  transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.36, 1),
+              box-shadow 0.5s ease;
+}
+.collage-card:hover {
+  transform: rotate(var(--rot, 0deg)) translate(var(--dx, 0px), calc(var(--dy, 0px) - 6px));
+  box-shadow: 0 22px 44px -18px hsla(18, 30%, 18%, 0.4),
+              0 4px 10px -3px hsla(18, 30%, 18%, 0.16);
+}
+
+/* Ornament gallery tiles with a subtle hover lift */
+.ornament-tile {
+  transition: transform 0.45s cubic-bezier(0.22, 0.8, 0.36, 1);
+}
+.ornament-tile:hover {
+  transform: translateY(-6px);
+}
+.ornament-tile > div {
+  box-shadow: 0 8px 22px -14px hsla(18, 30%, 18%, 0.28);
+  transition: box-shadow 0.45s ease;
+}
+.ornament-tile:hover > div {
+  box-shadow: 0 20px 38px -16px hsla(18, 30%, 18%, 0.38);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .theme-workshop *,
   .theme-workshop *::before,
