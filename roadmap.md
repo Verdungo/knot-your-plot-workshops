@@ -13,4 +13,5 @@
 - [ ] Replace temporary hero cut-outs with final transparent PNGs when provided
 - [x] Add cord underline, staggered hero entrances, festive badge/note, fact row and subtle snowfall with reduced-motion support
 - [x] Build /christmas page: hero photo collage + "Our ornaments" gallery
-- [x] Build independent /workshop page with calm B2B design, six ornaments, FAQ and validated WhatsApp request form
+- [x] Build independent /christmas-workshop-2026 page with calm B2B design, six ornaments, FAQ and validated WhatsApp request form
+- [x] Move workshop page URL from /workshop to /christmas-workshop-2026 with a redirect from the old path

@@ -37,7 +37,7 @@ const WorkshopHero = () => (
 
     <header className="wk-cream-bg wk-ink relative z-20">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <a href="/workshop" className="flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" aria-label="Knot Your Plot Christmas workshops">
+        <a href="/christmas-workshop-2026" className="flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" aria-label="Knot Your Plot Christmas workshops">
           <img src={logo} alt="" width={720} height={720} className="h-10 w-10 object-contain" />
           <span className="font-display text-lg font-semibold">Knot Your Plot</span>
         </a>
