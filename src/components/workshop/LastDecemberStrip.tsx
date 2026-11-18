@@ -68,7 +68,7 @@ const LastDecemberStrip = () => {
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: "#A67828" }}>A year ago</p>
             <h2 id="last-december-title" className="mt-3 font-display text-3xl font-semibold md:text-5xl" style={{ color: "#2C2018" }}>
-              Last December, in our <span style={{ color: "#B3262E" }}>hands.</span>
+              Last December, in our <span style={{ color: "#B3262E" }}>hands</span>
             </h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               A community workshop in Lisbon. Warm light, tea, and two calm hours with red and cream cord.

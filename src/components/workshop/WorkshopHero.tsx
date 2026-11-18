@@ -66,7 +66,7 @@ const WorkshopHero = () => (
             Santa&apos;s workshop, Lisbon edition
           </p>
           <h1 id="workshop-title" className="workshop-hero-enter wk-ink mt-4 font-display text-4xl font-semibold uppercase leading-[1.08] sm:text-5xl" style={{ animationDelay: "60ms" }}>
-            Let&apos;s tie up the year <span className="wk-red">together.</span>
+            Let&apos;s tie up the year <span className="wk-red">TOGETHER</span>
           </h1>
           <div className="workshop-hero-enter" style={{ animationDelay: "120ms" }}>
             <p className="wk-muted mx-auto mt-5 max-w-xl text-base leading-relaxed md:text-lg lg:mx-0">
