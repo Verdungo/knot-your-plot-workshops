@@ -1,6 +1,7 @@
 import { useEffect, type CSSProperties } from "react";
 import WorkshopHero from "@/components/workshop/WorkshopHero";
 import OrnamentGallery from "@/components/workshop/OrnamentGallery";
+import LastDecemberStrip from "@/components/workshop/LastDecemberStrip";
 import RequestForm from "@/components/workshop/RequestForm";
 import {
   CorporateGifts,
@@ -114,6 +115,7 @@ const Workshop = () => {
       <WorkshopHero />
       <main>
         <HowItGoes />
+        <LastDecemberStrip />
         <OrnamentGallery />
         <WorkshopPackage />
         <CorporateGifts />
