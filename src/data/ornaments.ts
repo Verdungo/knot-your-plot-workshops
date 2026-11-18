@@ -16,7 +16,7 @@ export type Ornament = {
 const size = { width: 1547, height: 1920 };
 
 export const ornaments: Ornament[] = [
-  { name: "Gnome", image: angel.url, alt: "Cream macramé angel with a wooden bead head and soft fringe on a teal background", ...size },
+  { name: "Angel", image: angel.url, alt: "Cream macramé angel with a wooden bead head and soft fringe on a teal background", ...size },
   { name: "Wreath", image: wreath.url, alt: "Red macramé wreath with a small bow on a teal background", ...size },
   { name: "Snowflake", image: snowflake.url, alt: "Cream macramé snowflake with woven points on a teal background", ...size },
   { name: "Candy Cane", image: candyCane.url, alt: "Red and cream braided macramé candy cane on a teal background", ...size },
