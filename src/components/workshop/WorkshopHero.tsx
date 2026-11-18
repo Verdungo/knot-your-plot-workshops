@@ -6,7 +6,7 @@ import angelImage from "@/assets/holiday/hanging/angel.png";
 import wreathImage from "@/assets/holiday/hanging/wreath.png";
 import candyCaneImage from "@/assets/holiday/hanging/candy-cane.png";
 
-const heroImages = import.meta.glob("../assets/workshop-hero.{jpg,jpeg,png,webp}", {
+const heroImages = import.meta.glob("../../assets/workshop-hero.{jpg,jpeg,png,webp}", {
   eager: true,
   query: "?url",
   import: "default",
