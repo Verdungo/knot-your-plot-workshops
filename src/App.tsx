@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Holiday from "./pages/Holiday";
 import Christmas from "./pages/Christmas";
+import Workshop from "./pages/Workshop";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/holiday" element={<Holiday />} />
           <Route path="/christmas" element={<Christmas />} />
+          <Route path="/workshop" element={<Workshop />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
