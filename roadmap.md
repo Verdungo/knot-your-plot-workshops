@@ -9,3 +9,5 @@
 - [ ] Russian version of /holiday (after English is approved)
 - [ ] Interactive wish mechanic (later, per user)
 - [ ] Replace generated photos with real ornament + workshop photos (waiting on user)
+- [x] Prepare temporary transparent cut-outs from four attached ornament photos and verify the swinging hero
+- [ ] Replace temporary hero cut-outs with final transparent PNGs when provided

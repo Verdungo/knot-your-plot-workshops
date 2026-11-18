@@ -220,9 +220,27 @@
   0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
 }
+/* Hanging hero ornaments: only transform is animated for smooth, cheap motion */
+.hanging-ornament {
+  transform-origin: 50% 0;
+  animation-name: ornament-sway;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  will-change: transform;
+}
+@keyframes ornament-sway {
+  from { transform: rotate(-3deg); }
+  to { transform: rotate(3deg); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fairy-bulb {
     animation: none;
     opacity: 0.9;
+  }
+  .hanging-ornament {
+    animation: none;
+    will-change: auto;
   }
 }

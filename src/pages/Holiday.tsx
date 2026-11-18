@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Send, Gift, Sparkles, Package, Clock, Users, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
+import HangingOrnaments from "@/components/HangingOrnaments";
 import logo from "@/assets/logo.png";
 import flatlay from "@/assets/holiday/santa-workshop-flatlay.jpg.asset.json";
 import angel from "@/assets/holiday/angel.jpg";
@@ -114,8 +115,10 @@ const Holiday = () => (
         </div>
         <div className="relative max-w-md mx-auto w-full">
           <div className="hero-warm-glow pointer-events-none absolute -inset-10 rounded-full" aria-hidden="true" />
-          <div className="absolute -inset-3 rotate-2 rounded-lg bg-secondary" aria-hidden="true" />
-          <img src={flatlay.url} alt="Macramé Santa, wreath and candy cane on kraft paper" width={960} height={1280} className="relative w-full aspect-[3/4] object-cover rounded-lg -rotate-1 shadow-elevated" />
+          <HangingOrnaments
+            fallbackSrc={flatlay.url}
+            fallbackAlt="Macramé Santa, wreath and candy cane on kraft paper"
+          />
         </div>
       </div>
     </section>
