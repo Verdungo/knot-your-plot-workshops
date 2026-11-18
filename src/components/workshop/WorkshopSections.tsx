@@ -144,6 +144,29 @@ export const CorporateGifts = () => (
           </article>
         ))}
       </div>
+      <div className="mt-12 text-center">
+        <p className="text-sm font-medium">Ask about gifts for your team:</p>
+        <div className="mt-3 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a
+            href={`${WHATSAPP_URL}?text=${encodeURIComponent("Hi! I'd like to ask about corporate gifts.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md border border-transparent px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:w-auto"
+            style={{ backgroundColor: "#B3262E" }}
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp
+          </a>
+          <a
+            href={TELEGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md border bg-transparent px-5 text-sm font-semibold transition-opacity hover:bg-[#1F3A2E]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:w-auto"
+            style={{ borderColor: "#1F3A2E", color: "#1F3A2E" }}
+          >
+            <Send className="h-4 w-4" aria-hidden="true" /> Telegram
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 );
