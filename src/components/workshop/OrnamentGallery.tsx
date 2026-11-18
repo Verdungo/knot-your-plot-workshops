@@ -11,7 +11,7 @@ const OrnamentGallery = () => {
             Our ornaments
           </h2>
           <p className="mt-4 leading-relaxed text-muted-foreground">
-            Six designs in natural cotton and wood. Each guest picks 2–3 to make.
+            Six designs in natural cotton and wood. You can choose 2-3 that you like the most
           </p>
         </div>
 
