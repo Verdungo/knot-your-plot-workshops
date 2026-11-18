@@ -1,26 +1,8 @@
-import type { CSSProperties } from "react";
 import { Clock, MapPin, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
-
-const portraitHeroImages = import.meta.glob("../../assets/workshop-hero-portrait.{jpg,jpeg,png,webp}", {
-  eager: true,
-  query: "?url",
-  import: "default",
-});
-
-const landscapeHeroImages = import.meta.glob("../../assets/workshop-hero.{jpg,jpeg,png,webp}", {
-  eager: true,
-  query: "?url",
-  import: "default",
-});
-
-const portraitHeroImage = Object.values(portraitHeroImages)[0] as string | undefined;
-const landscapeHeroImage = Object.values(landscapeHeroImages)[0] as string | undefined;
-const heroImage = portraitHeroImage ?? landscapeHeroImage;
-
-// Keep the portrait as the default everywhere; enable this to prefer an optional landscape crop on desktop.
-const useLandscapeOnDesktop = false;
+import landscapeImage from "@/assets/workshop-hero-landscape.jpg";
+import portraitImage from "@/assets/workshop-hero-portrait.jpg";
 
 const facts = [
   { icon: Clock, label: "2 hours" },
@@ -28,120 +10,90 @@ const facts = [
   { icon: MapPin, label: "Lisbon or your office" },
 ];
 
-const workshopHeroStyles = `
-  .workshop-hero-image {
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 13%, black 100%);
-    mask-image: linear-gradient(to bottom, transparent 0%, black 13%, black 100%);
-  }
+const heroStyles = `
+  .wk-hero { --wk-cream: #F5EFE0; --wk-ink: #2C2018; --wk-red: #B3262E; --wk-pine: #1F3A2E; --wk-gold: #A67828; }
+  .wk-hero .wk-cream-bg { background: var(--wk-cream); }
+  .wk-hero .wk-ink { color: var(--wk-ink); }
+  .wk-hero .wk-muted { color: rgb(44 32 24 / 0.75); }
+  .wk-hero .wk-red { color: var(--wk-red); }
+  .wk-hero .wk-gold { color: var(--wk-gold); }
+  .wk-hero .wk-outline { border: 1px solid var(--wk-pine); color: var(--wk-pine); background: transparent; }
+  .wk-hero .wk-outline:hover { background: rgb(31 58 46 / 0.08); color: var(--wk-pine); }
+  .wk-hero .wk-divide > * + * { border-left: 1px solid rgb(44 32 24 / 0.18); }
+  .wk-hero .wk-facts { border-top: 1px solid rgb(44 32 24 / 0.18); border-bottom: 1px solid rgb(44 32 24 / 0.18); }
+  .wk-hero .wk-photo { height: auto; aspect-ratio: 4 / 5; }
+  .wk-hero .wk-card { margin-top: -48px; border-radius: 24px 24px 0 0; }
   @media (min-width: 1024px) {
-    .workshop-hero-copy {
-      padding-left: max(1.5rem, calc((100vw - 1280px) / 2 + 1.5rem));
-    }
-    .workshop-hero-image {
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 100%);
-      mask-image: linear-gradient(to right, transparent 0%, black 20%, black 100%);
-    }
+    .wk-hero .wk-stage { position: relative; height: min(86svh, 56vw); }
+    .wk-hero .wk-photo { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
+    .wk-hero .wk-card-wrap { position: absolute; inset: 0; display: flex; align-items: center; padding-left: 4vw; }
+    .wk-hero .wk-card { margin-top: 0; max-width: 560px; border-radius: 24px; padding: 46px; box-shadow: 0 24px 60px rgba(0,0,0,0.28); }
   }
 `;
 
-const WorkshopHero = () => {
-  return (
-    <section
-      className="workshop-hero relative isolate overflow-hidden bg-[hsl(var(--workshop-hero-background))] text-primary-foreground"
-      aria-labelledby="workshop-title"
-      style={
-        {
-          "--workshop-hero-background": "150 23.333% 11.765%",
-          backgroundImage: heroImage
-            ? undefined
-            : "radial-gradient(circle at 78% 45%, hsl(var(--golden) / 0.18), transparent 38%), linear-gradient(135deg, hsl(var(--workshop-hero-background)), hsl(var(--workshop-pine-dark)))",
-        } as CSSProperties
-      }
-    >
-      <style>{workshopHeroStyles}</style>
+const WorkshopHero = () => (
+  <section className="wk-hero relative" aria-labelledby="workshop-title">
+    <style>{heroStyles}</style>
 
-      <header className="absolute inset-x-0 top-0 z-20">
-        <div className="container mx-auto flex items-center justify-between px-6 py-5 md:py-7">
-          <a
-            href="/workshop"
-            className="flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
-            aria-label="Knot Your Plot Christmas workshops"
-          >
-            <img src={logo} alt="" width={720} height={720} className="h-10 w-10 object-contain" />
-            <span className="font-display text-lg font-semibold">Knot Your Plot</span>
-          </a>
-          <Button variant="cta" size="sm" asChild>
-            <a href="#book">Book a date</a>
-          </Button>
-        </div>
-      </header>
+    <header className="wk-cream-bg wk-ink relative z-20">
+      <div className="container mx-auto flex items-center justify-between px-6 py-4">
+        <a href="/workshop" className="flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" aria-label="Knot Your Plot Christmas workshops">
+          <img src={logo} alt="" width={720} height={720} className="h-10 w-10 object-contain" />
+          <span className="font-display text-lg font-semibold">Knot Your Plot</span>
+        </a>
+        <Button variant="cta" size="sm" asChild>
+          <a href="#book">Book a date</a>
+        </Button>
+      </div>
+    </header>
 
-      <div className="relative z-10 lg:min-h-[780px]">
-        <div className="relative z-10 flex items-center justify-center pb-14 pt-32 text-center lg:min-h-[780px] lg:w-[42%] lg:justify-start lg:pb-20 lg:pt-36 lg:text-left">
-          <div className="workshop-hero-copy mx-auto w-full max-w-2xl px-6 lg:mx-0 lg:max-w-none lg:pr-10 xl:pr-16">
-            <p
-              className="workshop-hero-enter text-xs font-semibold uppercase tracking-[0.2em] text-golden md:text-sm"
-              style={{ animationDelay: "0ms" }}
-            >
-              Santa&apos;s workshop, Lisbon edition
+    <div className="wk-stage">
+      <picture className="block">
+        <source media="(min-width: 1024px)" srcSet={landscapeImage} width={2016} height={1512} />
+        <img
+          src={portraitImage}
+          alt="Handmade macramé ornaments on kraft paper: a cream wreath, a red Santa gnome with a white fringe beard and a red-and-white candy cane, with cord, clothespins and a pinecone"
+          width={1512}
+          height={2016}
+          {...{ fetchpriority: "high" }}
+          className="wk-photo block w-full object-cover object-[50%_35%]"
+        />
+      </picture>
+
+      <div className="wk-card-wrap relative z-10">
+        <div className="wk-card wk-cream-bg relative w-full px-6 pb-12 pt-10 text-center sm:px-10 lg:text-left">
+          <p className="workshop-hero-enter wk-gold text-xs font-semibold uppercase tracking-[0.2em] md:text-sm" style={{ animationDelay: "0ms" }}>
+            Santa&apos;s workshop, Lisbon edition
+          </p>
+          <h1 id="workshop-title" className="workshop-hero-enter wk-ink mt-4 font-display text-4xl font-semibold uppercase leading-[1.08] sm:text-5xl" style={{ animationDelay: "60ms" }}>
+            Let&apos;s tie up the year <span className="wk-red">together.</span>
+          </h1>
+          <div className="workshop-hero-enter" style={{ animationDelay: "120ms" }}>
+            <p className="wk-muted mx-auto mt-5 max-w-xl text-base leading-relaxed md:text-lg lg:mx-0">
+              A warm, screen-free evening for your team. Everyone makes 2–3 macramé ornaments to take home,
+              wrapped in kraft paper and ready to gift.
             </p>
-            <h1
-              id="workshop-title"
-              className="workshop-hero-enter mt-5 font-display text-4xl font-semibold uppercase leading-[1.08] text-primary-foreground sm:text-5xl lg:text-5xl xl:text-6xl"
-              style={{ animationDelay: "60ms" }}
-            >
-              Let&apos;s tie up the year together.
-            </h1>
-            <div className="workshop-hero-enter" style={{ animationDelay: "120ms" }}>
-              <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-primary-foreground/85 md:text-lg lg:mx-0">
-                A warm, screen-free evening for your team. Everyone makes 2–3 macramé ornaments to take home,
-                wrapped in kraft paper and ready to gift.
-              </p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                <Button variant="cta" size="lg" asChild>
-                  <a href="#book">Book a December date</a>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-primary-foreground/60 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-                  asChild
-                >
-                  <a href="#gifts">Corporate gifts</a>
-                </Button>
-              </div>
-              <div className="mt-9 grid grid-cols-3 divide-x divide-primary-foreground/20 border-y border-primary-foreground/20 py-4">
-                {facts.map(({ icon: Icon, label }) => (
-                  <div key={label} className="flex min-w-0 flex-col items-center gap-2 px-2 xl:flex-row xl:justify-center">
-                    <Icon className="h-4 w-4 shrink-0 text-golden" aria-hidden="true" />
-                    <span className="text-xs leading-snug text-primary-foreground/85 sm:text-sm">{label}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+              <Button variant="cta" size="lg" asChild>
+                <a href="#book">Book a December date</a>
+              </Button>
+              <Button variant="outline" size="lg" className="wk-outline" asChild>
+                <a href="#gifts">Corporate gifts</a>
+              </Button>
+            </div>
+            <div className="wk-facts wk-divide mt-8 grid grid-cols-3 py-4">
+              {facts.map(({ icon: Icon, label }) => (
+                <div key={label} className="flex min-w-0 flex-col items-center gap-2 px-2 xl:flex-row xl:justify-center">
+                  <Icon className="wk-red h-4 w-4 shrink-0" aria-hidden="true" />
+                  <span className="wk-ink text-xs leading-snug sm:text-sm">{label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-
-        {heroImage && (
-          <div className="relative aspect-[4/5] w-full lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[58%]">
-            <picture className="block h-full w-full">
-              {useLandscapeOnDesktop && landscapeHeroImage && (
-                <source media="(min-width: 1024px)" srcSet={landscapeHeroImage} />
-              )}
-              <img
-                src={portraitHeroImage ?? landscapeHeroImage}
-                alt="A dark green wooden workshop wall with cord spools on a shelf, three hanging macramé ornaments, a glowing lantern and a frosted window"
-                width={1547}
-                height={1920}
-                {...{ fetchpriority: "high" }}
-                className="workshop-hero-image h-full w-full object-cover object-[60%_40%] lg:object-[50%_42%]"
-              />
-            </picture>
-          </div>
-        )}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default WorkshopHero;
