@@ -114,7 +114,7 @@ const Workshop = () => {
       <style>{workshopStyles}</style>
       <WorkshopHero />
       <main>
-        <HowItGoes />
+        <div style={{ backgroundColor: "#F5EFE0" }}><HowItGoes /></div>
         <LastDecemberStrip />
         <OrnamentGallery />
         <WorkshopPackage />
@@ -125,8 +125,7 @@ const Workshop = () => {
           className="scroll-mt-8 py-20 md:py-28"
           aria-labelledby="book-title"
           style={{
-            backgroundImage:
-              "linear-gradient(135deg, hsl(var(--secondary) / 0.5), hsl(var(--card)) 72%)",
+            backgroundColor: "#DEC7A3",
           }}
         >
           <div className="container mx-auto px-6">

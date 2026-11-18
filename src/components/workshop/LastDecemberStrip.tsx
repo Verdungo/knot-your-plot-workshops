@@ -62,15 +62,15 @@ const LastDecemberStrip = () => {
     scroller.current?.scrollBy({ left: dir * scroller.current.clientWidth * 0.7, behavior: "smooth" });
 
   return (
-    <section className="pb-14 md:pb-20" aria-labelledby="last-december-title" style={{ backgroundColor: "#F5EFE0" }}>
+    <section className="py-16 md:py-24" aria-labelledby="last-december-title" style={{ backgroundColor: "#1F3A2E" }}>
       <div className="container mx-auto px-6">
         <div className="flex items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: "#A67828" }}>A year ago</p>
-            <h2 id="last-december-title" className="mt-3 font-display text-3xl font-semibold md:text-5xl" style={{ color: "#2C2018" }}>
-              Last December, in our <span style={{ color: "#B3262E" }}>hands</span>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: "#D9B56A" }}>A year ago</p>
+            <h2 id="last-december-title" className="mt-3 font-display text-3xl font-semibold md:text-5xl" style={{ color: "#F5EFE0" }}>
+              Last December, in our <span style={{ color: "#E5675B" }}>hands</span>
             </h2>
-            <p className="mt-4 leading-relaxed text-muted-foreground">
+            <p className="mt-4 leading-relaxed" style={{ color: "rgba(245,239,224,0.8)" }}>
               A community workshop in Lisbon. Warm light, tea, and two calm hours with red and cream cord.
             </p>
           </div>
@@ -81,8 +81,8 @@ const LastDecemberStrip = () => {
                 type="button"
                 onClick={() => scrollBy(dir)}
                 aria-label={dir === -1 ? "Previous" : "Next"}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                style={{ color: "#1F3A2E" }}
+                className="flex h-11 w-11 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                style={{ color: "#1F3A2E", backgroundColor: "#F5EFE0" }}
               >
                 {dir === -1 ? <ChevronLeft className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
               </button>
@@ -97,7 +97,7 @@ const LastDecemberStrip = () => {
             <figure key={item.caption} className="w-fit max-w-[calc(100vw-5.5rem)] shrink-0 snap-start">
               <div
                 className="workshop-card-lift relative h-[300px] w-full overflow-hidden rounded-2xl lg:h-[360px]"
-                style={{ aspectRatio: item.aspect, boxShadow: "0 6px 20px rgba(44,32,24,0.12)" }}
+                style={{ aspectRatio: item.aspect, boxShadow: "0 8px 24px rgba(0,0,0,0.35)" }}
               >
                 {item.type === "image" ? (
                   <img src={item.src} alt={item.alt} width={item.width} height={item.height} loading="lazy" decoding="async" className="h-full w-full object-cover" />

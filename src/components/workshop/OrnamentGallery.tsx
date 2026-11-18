@@ -3,7 +3,7 @@ import { ornaments } from "@/data/ornaments";
 
 const OrnamentGallery = () => {
   return (
-    <section className="py-20 md:py-28" aria-labelledby="ornaments-title">
+    <section className="py-20 md:py-28" aria-labelledby="ornaments-title" style={{ backgroundColor: "#F5EFE0" }}>
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">What we make</p>
@@ -19,7 +19,8 @@ const OrnamentGallery = () => {
           {ornaments.map((ornament) => (
             <article
               key={ornament.name}
-              className="workshop-card-lift overflow-hidden rounded-lg border border-border bg-card"
+              className="workshop-card-lift overflow-hidden rounded-lg border border-border"
+              style={{ backgroundColor: "#FBF7EE" }}
             >
               <div className="aspect-[4/5] bg-background">
                 {ornament.image ? (

@@ -118,7 +118,7 @@ const RequestForm = () => {
   });
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="mx-auto mt-10 max-w-2xl text-left">
+    <form onSubmit={handleSubmit} noValidate className="mx-auto mt-10 max-w-2xl rounded-lg border border-border p-6 text-left md:p-10" style={{ backgroundColor: "#FBF7EE" }}>
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="workshop-name" className="text-sm font-medium">

@@ -75,10 +75,10 @@ const included = [
 ];
 
 export const WorkshopPackage = () => (
-  <section className="pb-20 md:pb-28" aria-labelledby="package-title">
+  <section className="py-20 md:py-28" aria-labelledby="package-title" style={{ backgroundColor: "#E8D5B8" }}>
     <div className="container mx-auto px-6">
       <SectionHeading eyebrow="What's in the box" title="Everything is taken care of" titleId="package-title" centered />
-      <div className="workshop-card-lift mx-auto mt-12 max-w-3xl rounded-lg border border-border bg-secondary p-8 text-center md:p-12">
+      <div className="workshop-card-lift mx-auto mt-12 max-w-3xl rounded-lg border border-border p-8 text-center md:p-12" style={{ backgroundColor: "#FBF7EE" }} >
         <h3 className="font-display text-3xl font-semibold">Team workshop</h3>
         <p className="mt-3 font-display text-2xl text-accent">from 300 € per workshop</p>
         <ul className="mx-auto mt-8 max-w-xl space-y-4 text-left">
@@ -113,7 +113,7 @@ const gifts = [
 ];
 
 export const CorporateGifts = () => (
-  <section id="gifts" className="scroll-mt-8 py-20 md:py-28" aria-labelledby="gifts-title">
+  <section id="gifts" className="scroll-mt-8 py-20 md:py-28" aria-labelledby="gifts-title" style={{ backgroundColor: "#F5EFE0" }}>
     <div className="container mx-auto px-6">
       <SectionHeading eyebrow="Corporate gifts" title="Gifts made by hand" titleId="gifts-title" centered>
         <p className="mt-4 leading-relaxed text-muted-foreground">
@@ -125,8 +125,9 @@ export const CorporateGifts = () => (
           <article
             key={gift.title}
             className={`workshop-card-lift rounded-lg border border-border p-7 md:p-8 ${
-              index === 0 ? "bg-secondary" : "bg-card"
+              ""
             }`}
+            style={{ backgroundColor: "#FBF7EE" }}
           >
             <h3 className="font-display text-2xl font-semibold">{gift.title}</h3>
             <p className="mt-4 leading-relaxed text-muted-foreground">{gift.description}</p>
@@ -166,12 +167,12 @@ const faqs = [
 ];
 
 export const WorkshopFaq = () => (
-  <section className="py-20 md:py-28" aria-labelledby="faq-title">
+  <section className="py-20 md:py-28" aria-labelledby="faq-title" style={{ backgroundColor: "#FBF7EE" }}>
     <div className="container mx-auto px-6">
       <SectionHeading eyebrow="Good to know" title="A few practical details" titleId="faq-title" centered />
       <Accordion type="single" collapsible className="mx-auto mt-10 max-w-2xl">
         {faqs.map((faq, index) => (
-          <AccordionItem key={faq.question} value={`item-${index}`} className="border-border">
+          <AccordionItem key={faq.question} value={`item-${index}`} className="mb-3 rounded-lg border border-border px-5" style={{ backgroundColor: "#F5EFE0" }}>
             <AccordionTrigger className="workshop-accordion-trigger gap-4 rounded-sm text-left text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
               {faq.question}
             </AccordionTrigger>
