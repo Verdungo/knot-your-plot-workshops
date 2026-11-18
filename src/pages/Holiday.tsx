@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Send, Gift, Sparkles, Package, Clock, Users, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import HangingOrnaments from "@/components/HangingOrnaments";
+import { DecemberBadge, HandmadeNote, Snowfall } from "@/components/HolidayHeroDecor";
 import logo from "@/assets/logo.png";
 import flatlay from "@/assets/holiday/santa-workshop-flatlay.jpg.asset.json";
 import angel from "@/assets/holiday/angel.jpg";
@@ -95,30 +96,69 @@ const Holiday = () => (
     </header>
 
     {/* Hero */}
-    <section className="pt-28 pb-20 md:pt-32 md:pb-28">
+    <section className="relative isolate overflow-hidden pt-28 pb-20 md:pt-32 md:pb-28">
+      <Snowfall />
       <FairyLights />
-      <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container relative z-10 mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div className="text-center lg:text-left">
-          <span className="inline-flex items-center gap-2 text-sm font-medium tracking-widest text-accent uppercase mb-6">
+          <span className="hero-reveal inline-flex items-center gap-2 text-sm font-medium tracking-widest text-accent uppercase mb-6" style={{ animationDelay: "0ms" }}>
             <Sparkles className="h-4 w-4" /> Christmas team workshops
           </span>
-          <h1 className="font-display text-4xl md:text-6xl font-semibold uppercase leading-tight mb-6">
-            Let's tie up the year <span className="text-accent">together.</span>
+          <h1 className="hero-reveal font-display text-4xl md:text-6xl font-semibold uppercase leading-tight mb-6" style={{ animationDelay: "60ms" }}>
+            Let's tie up the year{" "}
+            <span className="relative inline-block pb-1 text-accent">
+              together.
+              <svg className="absolute -bottom-2 left-0 h-6 w-full overflow-visible" viewBox="0 0 300 36" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                <path
+                  className="hero-cord-path"
+                  d="M4 15 C42 23 78 10 119 17 C161 25 204 11 260 15"
+                  pathLength={1}
+                  stroke="currentColor"
+                  strokeWidth="3.2"
+                  strokeLinecap="round"
+                  vectorEffect="non-scaling-stroke"
+                />
+                <path
+                  className="hero-knot-path"
+                  d="M260 15 C269 5 282 8 279 17 C276 26 261 23 264 14 C268 7 284 13 294 27"
+                  pathLength={1}
+                  stroke="currentColor"
+                  strokeWidth="3.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+            </span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto lg:mx-0">
+          <p className="hero-reveal text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto lg:mx-0" style={{ animationDelay: "120ms" }}>
             A warm, screen-free evening in Santa's workshop for your team. Everyone makes 2–3 macramé ornaments to take home — wrapped in kraft paper and ready to gift.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <div className="hero-reveal flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" style={{ animationDelay: "180ms" }}>
             <Button variant="cta" size="lg" asChild><a href="#book">Book a December date</a></Button>
             <Button variant="outline" size="lg" asChild><a href="#gifts">Corporate gifts</a></Button>
           </div>
+          <div className="hero-reveal mx-auto mt-8 grid max-w-lg grid-cols-3 border-y border-border/70 py-4 lg:mx-0" style={{ animationDelay: "240ms" }}>
+            {[
+              { icon: Clock, text: "2 hours" },
+              { icon: Users, text: "5–15 people" },
+              { icon: MapPin, text: "Lisbon" },
+            ].map(({ icon: Icon, text }, index) => (
+              <div key={text} className={cn("flex items-center justify-center gap-1.5 text-xs sm:text-sm", index > 0 && "border-l border-border/70")}>
+                <Icon className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                <span>{text}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="relative max-w-md mx-auto w-full">
+        <div className="relative mx-auto w-full max-w-md">
           <div className="hero-warm-glow pointer-events-none absolute -inset-10 rounded-full" aria-hidden="true" />
+          <DecemberBadge />
           <HangingOrnaments
             fallbackSrc={flatlay.url}
             fallbackAlt="Macramé Santa, wreath and candy cane on kraft paper"
           />
+          <HandmadeNote />
         </div>
       </div>
     </section>

@@ -234,7 +234,83 @@
   to { transform: rotate(3deg); }
 }
 
+/* Holiday hero entrances and hand-drawn cord */
+.hero-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: hero-fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes hero-fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-cord-path,
+.hero-knot-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.hero-cord-path {
+  animation: draw-hero-cord 1.1s ease-out 0.5s forwards;
+}
+.hero-knot-path {
+  animation: draw-hero-cord 0.45s ease-out 1.45s forwards;
+}
+@keyframes draw-hero-cord {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Rotating date badge and handwritten note */
+.hero-badge-rotate {
+  transform-origin: center;
+  animation: hero-badge-spin 26s linear infinite;
+}
+@keyframes hero-badge-spin {
+  to { transform: rotate(360deg); }
+}
+.hero-handnote {
+  font-family: "Segoe Print", "Bradley Hand", "Apple Chancery", cursive;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+/* A restrained, CSS-only sparkle layer */
+.hero-sparkle {
+  position: absolute;
+  top: -12px;
+  display: block;
+  border-radius: 50%;
+  background: hsl(var(--golden));
+  opacity: 0;
+  animation-name: hero-sparkle-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.hero-sparkle--diamond { border-radius: 1px; }
+.hero-sparkle--red { background: hsl(var(--accent)); }
+@keyframes hero-sparkle-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -24px, 0) rotate(0deg);
+  }
+  15% { opacity: 0.22; }
+  75% { opacity: 0.16; }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--sparkle-drift), 100vh, 0) rotate(180deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .theme-workshop *,
+  .theme-workshop *::before,
+  .theme-workshop *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
   .fairy-bulb {
     animation: none;
     opacity: 0.9;
@@ -242,5 +318,20 @@
   .hanging-ornament {
     animation: none;
     will-change: auto;
+  }
+  .hero-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .hero-cord-path,
+  .hero-knot-path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .hero-badge-rotate { animation: none; }
+  .hero-sparkle {
+    display: none;
+    animation: none;
   }
 }

@@ -11,3 +11,4 @@
 - [ ] Replace generated photos with real ornament + workshop photos (waiting on user)
 - [x] Prepare temporary transparent cut-outs from four attached ornament photos and verify the swinging hero
 - [ ] Replace temporary hero cut-outs with final transparent PNGs when provided
+- [x] Add cord underline, staggered hero entrances, festive badge/note, fact row and subtle snowfall with reduced-motion support
