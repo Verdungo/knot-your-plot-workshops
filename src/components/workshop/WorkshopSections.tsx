@@ -4,7 +4,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 import patternGifts from "@/assets/pattern-gifts.svg";
-import { TELEGRAM_URL, WHATSAPP_URL } from "./contact";
+import { Instagram, MessageCircle, Send } from "lucide-react";
+import { INSTAGRAM_DM_URL, TELEGRAM_URL, WHATSAPP_URL } from "./contact";
 
 export const SectionHeading = ({
   eyebrow,
@@ -196,9 +197,9 @@ export const WorkshopFaq = () => (
 );
 
 const footerLinks = [
-  { label: "WhatsApp", href: WHATSAPP_URL },
-  { label: "Telegram", href: TELEGRAM_URL },
-  { label: "Instagram", href: "https://www.instagram.com/knot.your.plot/" },
+  { label: "WhatsApp", href: WHATSAPP_URL, Icon: MessageCircle },
+  { label: "Telegram", href: TELEGRAM_URL, Icon: Send },
+  { label: "Instagram", href: INSTAGRAM_DM_URL, Icon: Instagram },
 ];
 
 export const WorkshopFooter = () => (
@@ -215,8 +216,9 @@ export const WorkshopFooter = () => (
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-sm text-primary-foreground/85 hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground"
+            className="inline-flex items-center gap-1.5 rounded-sm text-primary-foreground/85 hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground"
           >
+            <link.Icon className="h-4 w-4" aria-hidden="true" />
             {link.label}
           </a>
         ))}

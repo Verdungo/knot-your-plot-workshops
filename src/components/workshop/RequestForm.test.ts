@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildWorkshopWhatsAppMessage, workshopRequestSchema } from "./RequestForm";
+import { buildWhatsAppHref, buildWorkshopWhatsAppMessage, workshopRequestSchema } from "./RequestForm";
 
 describe("workshop request validation", () => {
   it("accepts a whole team size of at least 1", () => {
@@ -26,5 +26,11 @@ describe("workshop request validation", () => {
     expect(message).not.toContain("Company:");
     expect(message).not.toContain("Preferred date:");
     expect(message).not.toContain("Notes:");
+  });
+
+  it("builds a wa.me link with the encoded request text", () => {
+    const href = buildWhatsAppHref({ name: "Ana & Co", company: "", teamSize: "8", preferredDate: "", notes: "" });
+    expect(href.startsWith("https://wa.me/351913644619?text=")).toBe(true);
+    expect(decodeURIComponent(href.split("?text=")[1])).toContain("Name: Ana & Co");
   });
 });

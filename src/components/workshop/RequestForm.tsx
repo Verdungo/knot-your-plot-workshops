@@ -1,7 +1,7 @@
-import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import { useRef, useState, type ChangeEvent, type FormEvent, type MouseEvent } from "react";
+import { Instagram, MessageCircle, Send } from "lucide-react";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
-import { TELEGRAM_URL, WHATSAPP_URL } from "./contact";
+import { INSTAGRAM_DM_URL, TELEGRAM_URL, WHATSAPP_URL } from "./contact";
 
 const withoutControlCharacters = (message = "Remove control characters") =>
   z.string().refine((value) => !/[\p{Cc}\p{Cf}]/u.test(value), message);
@@ -47,6 +47,9 @@ export const buildWorkshopWhatsAppMessage = (request: WorkshopRequest) => {
   return lines.filter((line): line is string => Boolean(line)).join("\n");
 };
 
+export const buildWhatsAppHref = (request: WorkshopRequest) =>
+  `${WHATSAPP_URL}?text=${encodeURIComponent(buildWorkshopWhatsAppMessage(request))}`;
+
 const initialValues: WorkshopRequest = {
   name: "",
   company: "",
@@ -85,29 +88,49 @@ const RequestForm = () => {
     });
   };
 
+  const parsed = workshopRequestSchema.safeParse(values);
+  const isValid = parsed.success;
+  const [copyNote, setCopyNote] = useState("");
+
+  const showErrors = () => {
+    if (parsed.success) return;
+    const nextErrors: FieldErrors = {};
+    for (const issue of parsed.error.issues) {
+      const field = issue.path[0] as FieldName;
+      if (!nextErrors[field]) nextErrors[field] = issue.message;
+    }
+    setErrors(nextErrors);
+    const firstInvalidField = (Object.keys(fieldRefs) as FieldName[]).find((field) => nextErrors[field]);
+    if (firstInvalidField) fieldRefs[firstInvalidField].current?.focus();
+  };
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const result = workshopRequestSchema.safeParse(values);
-
-    if (!result.success) {
-      const nextErrors: FieldErrors = {};
-      for (const issue of result.error.issues) {
-        const field = issue.path[0] as FieldName;
-        if (!nextErrors[field]) nextErrors[field] = issue.message;
-      }
-      setErrors(nextErrors);
-      const firstInvalidField = (Object.keys(fieldRefs) as FieldName[]).find((field) => nextErrors[field]);
-      if (firstInvalidField) fieldRefs[firstInvalidField].current?.focus();
-      return;
-    }
-
-    const confirmed = workshopRequestSchema.safeParse(result.data);
-    if (!confirmed.success) return;
-
-    const message = buildWorkshopWhatsAppMessage(confirmed.data);
-    const url = `${WHATSAPP_URL}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+    showErrors();
   };
+
+  const guardClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (!parsed.success) {
+      event.preventDefault();
+      showErrors();
+      return false;
+    }
+    return true;
+  };
+
+  const handleCopyClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (!guardClick(event) || !parsed.success) return;
+    const text = buildWorkshopWhatsAppMessage(parsed.data);
+    try {
+      void navigator.clipboard?.writeText(text).catch(() => undefined);
+      setCopyNote("Request copied. Paste it in the chat.");
+    } catch {
+      setCopyNote("");
+    }
+  };
+
+  const channelBase =
+    "inline-flex h-12 items-center justify-center gap-2 rounded-md border px-5 text-sm font-semibold transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
 
   const inputClassName =
     "mt-2 h-11 w-full rounded-md border border-input bg-card px-3 py-2 text-foreground outline-none transition-[box-shadow] placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
@@ -229,18 +252,47 @@ const RequestForm = () => {
         )}
       </div>
       <div className="mt-7 text-center">
-        <Button type="submit" variant="cta" size="lg">
-          Send request via WhatsApp
-        </Button>
-        <p className="mt-4 text-sm text-muted-foreground">
+        <p className="text-sm font-medium">Send your request via:</p>
+        <div className="mt-3 grid gap-3 sm:grid-cols-3">
+          <a
+            href={parsed.success ? buildWhatsAppHref(parsed.data) : WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={guardClick}
+            aria-disabled={!isValid}
+            className={`${channelBase} border-transparent text-white hover:opacity-90`}
+            style={{ backgroundColor: "#B3262E", opacity: isValid ? 1 : 0.55 }}
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp
+          </a>
           <a
             href={TELEGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-sm underline underline-offset-4 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            onClick={handleCopyClick}
+            aria-disabled={!isValid}
+            className={`${channelBase} bg-transparent hover:bg-[#1F3A2E]/5`}
+            style={{ borderColor: "#1F3A2E", color: "#1F3A2E", opacity: isValid ? 1 : 0.55 }}
           >
-            or send via Telegram
+            <Send className="h-4 w-4" aria-hidden="true" /> Telegram
           </a>
+          <a
+            href={INSTAGRAM_DM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleCopyClick}
+            aria-disabled={!isValid}
+            className={`${channelBase} bg-transparent hover:bg-[#1F3A2E]/5`}
+            style={{ borderColor: "#1F3A2E", color: "#1F3A2E", opacity: isValid ? 1 : 0.55 }}
+          >
+            <Instagram className="h-4 w-4" aria-hidden="true" /> Instagram
+          </a>
+        </div>
+        <p aria-live="polite" className="mt-3 min-h-5 text-sm" style={{ color: "#2C2018" }}>
+          {copyNote}
+        </p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Prefer to write yourself? Just message us on any of these, we reply within one working day.
         </p>
       </div>
     </form>
