@@ -3,6 +3,7 @@ import WorkshopHero from "@/components/workshop/WorkshopHero";
 import OrnamentGallery from "@/components/workshop/OrnamentGallery";
 import LastDecemberStrip from "@/components/workshop/LastDecemberStrip";
 import RequestForm from "@/components/workshop/RequestForm";
+import patternForm from "@/assets/pattern-form.svg";
 import {
   CorporateGifts,
   HowItGoes,
@@ -53,6 +54,16 @@ const workshopStyles = `
   }
   .workshop-card-lift:hover {
     transform: translateY(-2px);
+  }
+  .wk-pattern {
+    background-repeat: repeat;
+    background-position: center top;
+    background-size: 360px 360px;
+  }
+  @media (max-width: 639px) {
+    .wk-pattern {
+      background-size: 280px 280px;
+    }
   }
   .workshop-hanging-ornament {
     filter: sepia(0.08) saturate(1.05) drop-shadow(0 10px 14px rgb(0 0 0 / 0.35));
@@ -122,10 +133,11 @@ const Workshop = () => {
         <WorkshopFaq />
         <section
           id="book"
-          className="scroll-mt-8 py-20 md:py-28"
+          className="wk-pattern scroll-mt-8 py-20 md:py-28"
           aria-labelledby="book-title"
           style={{
             backgroundColor: "#DEC7A3",
+            backgroundImage: `url("${patternForm}")`,
           }}
         >
           <div className="container mx-auto px-6">

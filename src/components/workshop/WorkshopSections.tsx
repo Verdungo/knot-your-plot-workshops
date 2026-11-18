@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
+import patternGifts from "@/assets/pattern-gifts.svg";
 import { TELEGRAM_URL, WHATSAPP_URL } from "./contact";
 
 export const SectionHeading = ({
@@ -113,7 +114,15 @@ const gifts = [
 ];
 
 export const CorporateGifts = () => (
-  <section id="gifts" className="scroll-mt-8 py-20 md:py-28" aria-labelledby="gifts-title" style={{ backgroundColor: "#F5EFE0" }}>
+  <section
+    id="gifts"
+    className="wk-pattern scroll-mt-8 py-20 md:py-28"
+    aria-labelledby="gifts-title"
+    style={{
+      backgroundColor: "#F5EFE0",
+      backgroundImage: `url("${patternGifts}")`,
+    }}
+  >
     <div className="container mx-auto px-6">
       <SectionHeading eyebrow="Corporate gifts" title="Gifts made by hand" titleId="gifts-title" centered>
         <p className="mt-4 leading-relaxed text-muted-foreground">
