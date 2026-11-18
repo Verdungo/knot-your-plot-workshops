@@ -1,7 +1,9 @@
-import angelImage from "@/assets/holiday/hanging/angel.png";
-import wreathImage from "@/assets/holiday/hanging/wreath.png";
-import snowflakeImage from "@/assets/holiday/hanging/snowflake.png";
-import candyCaneImage from "@/assets/holiday/hanging/candy-cane.png";
+import angel from "@/assets/workshop-ornaments/angel.jpg.asset.json";
+import wreath from "@/assets/workshop-ornaments/wreath.jpg.asset.json";
+import snowflake from "@/assets/workshop-ornaments/snowflake.jpg.asset.json";
+import candyCane from "@/assets/workshop-ornaments/candy-cane.jpg.asset.json";
+import heartAngel from "@/assets/workshop-ornaments/heart-angel.jpg.asset.json";
+import redTree from "@/assets/workshop-ornaments/red-tree.jpg.asset.json";
 
 export type Ornament = {
   name: string;
@@ -11,41 +13,13 @@ export type Ornament = {
   height?: number;
 };
 
+const size = { width: 1547, height: 1920 };
+
 export const ornaments: Ornament[] = [
-  {
-    name: "Angel",
-    image: angelImage,
-    alt: "Cream macramé angel with a wooden bead, star and soft fringe",
-    width: 371,
-    height: 800,
-  },
-  {
-    name: "Wreath",
-    image: wreathImage,
-    alt: "Red macramé wreath with a wooden bead and a small ribbon bow",
-    width: 477,
-    height: 800,
-  },
-  {
-    name: "Snowflake",
-    image: snowflakeImage,
-    alt: "Cream macramé snowflake with six woven points and a hanging loop",
-    width: 692,
-    height: 800,
-  },
-  {
-    name: "Candy Cane",
-    image: candyCaneImage,
-    alt: "Red and cream braided macramé candy cane with a red bow and tassels",
-    width: 387,
-    height: 800,
-  },
-  {
-    name: "Ornament 5",
-    alt: "Placeholder for the fifth handmade macramé ornament",
-  },
-  {
-    name: "Ornament 6",
-    alt: "Placeholder for the sixth handmade macramé ornament",
-  },
+  { name: "Angel", image: angel.url, alt: "Cream macramé angel with a wooden bead head and soft fringe on a teal background", ...size },
+  { name: "Wreath", image: wreath.url, alt: "Red macramé wreath with a small bow on a teal background", ...size },
+  { name: "Snowflake", image: snowflake.url, alt: "Cream macramé snowflake with woven points on a teal background", ...size },
+  { name: "Candy Cane", image: candyCane.url, alt: "Red and cream braided macramé candy cane on a teal background", ...size },
+  { name: "Heart Angel", image: heartAngel.url, alt: "Cream macramé angel with beige braided hair holding a wooden heart, on a teal background", ...size },
+  { name: "Christmas Tree", image: redTree.url, alt: "Red macramé Christmas tree with a gold bead and gold-wrapped trunk on a teal background", ...size },
 ];

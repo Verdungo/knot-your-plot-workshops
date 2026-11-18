@@ -21,7 +21,7 @@ const OrnamentGallery = () => {
               key={ornament.name}
               className="workshop-card-lift overflow-hidden rounded-lg border border-border bg-card"
             >
-              <div className="aspect-[3/4] bg-background p-3 md:p-5">
+              <div className="aspect-[4/5] bg-background">
                 {ornament.image ? (
                   <img
                     src={ornament.image}
@@ -30,7 +30,7 @@ const OrnamentGallery = () => {
                     height={ornament.height ?? 800}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-contain"
+                    className="h-full w-full object-cover"
                   />
                 ) : (
                   <div
