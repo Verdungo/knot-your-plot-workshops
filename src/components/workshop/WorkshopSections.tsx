@@ -82,7 +82,7 @@ export const WorkshopPackage = () => (
       <SectionHeading eyebrow="What's in the box" title="Everything is taken care of" titleId="package-title" centered />
       <div className="workshop-card-lift mx-auto mt-12 max-w-3xl rounded-lg border border-border p-8 text-center md:p-12" style={{ backgroundColor: "#FBF7EE" }} >
         <h3 className="font-display text-3xl font-semibold">Team workshop</h3>
-        <p className="mt-3 font-display text-2xl text-accent">from 300 € per workshop</p>
+        <p className="mt-3 font-display text-2xl text-accent">from 500 € per workshop</p>
         <ul className="mx-auto mt-8 max-w-xl space-y-4 text-left">
           {included.map((item) => (
             <li key={item} className="flex items-start gap-3 leading-relaxed">
