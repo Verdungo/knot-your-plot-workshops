@@ -205,7 +205,7 @@ const Holiday = () => (
         </div>
         <div className="bg-card rounded-lg p-8 md:p-10 shadow-sm self-start">
           <h3 className="font-display text-2xl font-semibold mb-2">In-person workshop</h3>
-          <p className="text-primary font-medium mb-8">from 40 € per person · min 200 €</p>
+          <p className="text-primary font-medium mb-8">from 500 € per workshop</p>
           <ul className="space-y-5">
             {included.map(({ icon: Icon, text }) => (
               <li key={text} className="flex items-start gap-4">
